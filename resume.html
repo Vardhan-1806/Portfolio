@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css"/>
   <script src="ink-transition.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <style>
     .resume-sidebar-card {
       background: var(--card); border: 1px solid var(--border);
@@ -234,33 +235,48 @@
                 </span>
               </div>
               <div style="display: flex; gap: 14px; align-items: center;">
+                <a href="resume.pdf" target="_blank" rel="noopener" style="font-family: var(--mono); font-size: 11.5px; color: var(--ink2); text-decoration: none;">&nearr; Open Tab</a>
                 <button type="button" onclick="document.getElementById('fullscreenPreviewBtn').click()" style="background:none; border:none; font-family: var(--mono); font-size: 11.5px; color: var(--ink2); cursor:pointer;">⤢ Fullscreen</button>
                 <a href="resume.pdf" download="Alisam_Srivardhan_Resume.pdf" style="font-family: var(--mono); font-size: 11.5px; color: var(--olive); font-weight: 600; text-decoration: none;">&darr; Save File</a>
               </div>
             </div>
 
-            <!-- Embedded PDF Document -->
-            <object
-              data="resume.pdf#toolbar=1&navpanes=0&scrollbar=1"
-              type="application/pdf"
-              class="resume-pdf-frame"
-              id="resumePdfObject"
-              aria-label="Alisam Srivardhan Resume Document"
-            >
-              <div style="padding: 60px 24px; text-align: center;">
+            <!-- PDF Viewer Wrapper with PDF.js Canvas + Fallbacks -->
+            <div id="pdfViewerWrapper" style="position: relative; width: 100%; min-height: 860px; max-height: 920px; overflow-y: auto; overflow-x: hidden; background: var(--bg2); padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center;">
+              <!-- Loading Spinner -->
+              <div id="pdfLoadingIndicator" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 400px; gap: 14px; color: var(--ink2);">
+                <div style="width: 32px; height: 32px; border: 3px solid var(--border); border-top-color: var(--olive); border-radius: 50%; animation: pdfSpin 0.8s linear infinite;"></div>
+                <span style="font-family: var(--mono); font-size: 12px;">Loading official resume document...</span>
+              </div>
+
+              <!-- PDF.js Canvas Pages Container -->
+              <div id="pdfPagesContainer" style="width: 100%; display: flex; flex-direction: column; align-items: center; gap: 18px;"></div>
+
+              <!-- Fallback Iframe if PDF.js is blocked or offline -->
+              <iframe
+                id="pdfFallbackIframe"
+                src="resume.pdf#toolbar=1&navpanes=0&scrollbar=1&view=FitH"
+                style="display: none; width: 100%; height: 860px; border: none; border-radius: 6px;"
+                title="Alisam Srivardhan Resume Document"
+                loading="lazy"
+                allow="fullscreen"
+              ></iframe>
+
+              <!-- Fallback Message if both fail (e.g. mobile device blocking iframe PDF) -->
+              <div id="pdfFallbackMsg" style="display: none; padding: 60px 24px; text-align: center;">
                 <p style="font-size: 15px; color: var(--ink2); margin-bottom: 20px;">
-                  Browser PDF preview is not enabled. View or download the verified resume directly:
+                  Direct PDF document ready to view or download:
                 </p>
-                <div style="display: flex; gap: 12px; justify-content: center;">
-                  <a href="resume.pdf" download="Alisam_Srivardhan_Resume.pdf" class="btn-primary">
-                    Download PDF Document &darr;
+                <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                  <a href="resume.pdf" target="_blank" rel="noopener" class="btn-primary">
+                    Open PDF in New Tab &nearr;
                   </a>
-                  <a href="contact.html" class="btn-outline">
-                    Contact Me &rarr;
+                  <a href="resume.pdf" download="Alisam_Srivardhan_Resume.pdf" class="btn-outline">
+                    Download PDF &darr;
                   </a>
                 </div>
               </div>
-            </object>
+            </div>
           </div>
         </div>
       </div>
@@ -269,15 +285,15 @@
 </section>
 
 <!-- Fullscreen Resume Modal -->
-<div id="resumeFullscreenModal" style="display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(20,18,16,0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); flex-direction: column;">
-  <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 24px; background: rgba(30,27,24,0.95); border-bottom: 1px solid rgba(255,255,255,0.1);">
+<div id="resumeFullscreenModal" style="display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(9,10,13,0.96); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); flex-direction: column;">
+  <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 24px; background: var(--bg2); border-bottom: 1px solid var(--border);">
     <div style="display: flex; align-items: center; gap: 12px;">
-      <span style="font-family: var(--serif); font-size: 17px; font-weight: 700; color: #fff;">Alisam Srivardhan — Curriculum Vitae</span>
-      <span style="font-family: var(--mono); font-size: 11px; color: var(--olive); background: rgba(104,135,77,0.2); padding: 3px 8px; border-radius: 4px;">Verified PDF</span>
+      <span style="font-family: var(--serif); font-size: 17px; font-weight: 700; color: var(--ink);">Alisam Srivardhan — Curriculum Vitae</span>
+      <span style="font-family: var(--mono); font-size: 11px; color: var(--olive); background: var(--olive-wash); border: 1px solid var(--olive-border); padding: 3px 8px; border-radius: 4px;">Verified PDF</span>
     </div>
     <div style="display: flex; align-items: center; gap: 14px;">
-      <a href="resume.pdf" download="Alisam_Srivardhan_Resume.pdf" style="font-family: var(--mono); font-size: 12px; color: #d4af37; text-decoration: none; border: 1px solid rgba(212,175,55,0.4); padding: 6px 14px; border-radius: 50px;">&darr; Download PDF</a>
-      <button id="closeResumeModalBtn" style="background: none; border: none; color: #fff; font-size: 26px; cursor: pointer; line-height: 1; padding: 0 6px;" aria-label="Close Fullscreen Modal">&times;</button>
+      <a href="resume.pdf" download="Alisam_Srivardhan_Resume.pdf" class="btn-primary" style="padding: 6px 16px; font-size: 12px;">&darr; Download PDF</a>
+      <button id="closeResumeModalBtn" style="background: none; border: none; color: var(--ink); font-size: 26px; cursor: pointer; line-height: 1; padding: 0 6px;" aria-label="Close Fullscreen Modal">&times;</button>
     </div>
   </div>
   <div style="flex: 1; position: relative;">
@@ -310,6 +326,65 @@
       }
     });
   })();
+
+  // PDF.js In-Browser Document Renderer
+  async function renderResumePdf() {
+    const container = document.getElementById('pdfPagesContainer');
+    const loading = document.getElementById('pdfLoadingIndicator');
+    const fallbackIframe = document.getElementById('pdfFallbackIframe');
+    const fallbackMsg = document.getElementById('pdfFallbackMsg');
+    if (!container) return;
+
+    if (typeof pdfjsLib === 'undefined') {
+      if (loading) loading.style.display = 'none';
+      if (fallbackIframe) fallbackIframe.style.display = 'block';
+      return;
+    }
+
+    try {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      const pdf = await pdfjsLib.getDocument('resume.pdf').promise;
+      if (loading) loading.style.display = 'none';
+      container.innerHTML = '';
+
+      for (let i = 1; i <= pdf.numPages; i++) {
+        const page = await pdf.getPage(i);
+        const canvas = document.createElement('canvas');
+        canvas.className = 'pdf-page-canvas';
+        container.appendChild(canvas);
+
+        const containerWidth = Math.min(container.clientWidth || 800, 850);
+        const unscaledViewport = page.getViewport({ scale: 1 });
+        const fitScale = (containerWidth - 24) / unscaledViewport.width;
+        const dpr = Math.max(window.devicePixelRatio || 1, 2);
+        const viewport = page.getViewport({ scale: fitScale * dpr });
+
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        canvas.style.width = (viewport.width / dpr) + 'px';
+        canvas.style.height = (viewport.height / dpr) + 'px';
+        canvas.style.maxWidth = '100%';
+        canvas.style.boxShadow = '0 6px 28px rgba(0,0,0,0.22)';
+        canvas.style.borderRadius = '6px';
+        canvas.style.background = '#ffffff';
+
+        await page.render({
+          canvasContext: canvas.getContext('2d'),
+          viewport: viewport
+        }).promise;
+      }
+    } catch (e) {
+      console.warn('PDF.js rendering fallback:', e);
+      if (loading) loading.style.display = 'none';
+      if (fallbackIframe) fallbackIframe.style.display = 'block';
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderResumePdf);
+  } else {
+    renderResumePdf();
+  }
 </script>
 
 <!-- UNIVERSAL PERSISTENT FOOTER -->
