@@ -1,0 +1,9 @@
+<svg class="asv-monogram-svg" viewBox="0 0 500 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Stylized A Frame -->
+  <path d="M 250 25 L 126 268 L 168 268 L 202 188 L 298 188 L 332 268 L 374 268 Z" fill="#362c24"/>
+  <!-- Inner Apex Cutout -->
+  <path d="M 250 64 L 230 114 L 270 114 Z" fill="#fcfbf7"/>
+  <!-- Winged V with Supersonic Sweep -->
+  <path d="M 12 124 L 226 124 L 250 268 L 274 124 L 488 124 L 324 148 L 250 220 L 176 148 Z" fill="#465c33"/>
+  <path d="M 12 124 L 226 124 L 250 268 L 274 124 L 488 124 L 324 148 L 250 220 L 176 148 Z" stroke="#362c24" stroke-width="1.5" stroke-linejoin="round"/>
+</svg>

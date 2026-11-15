@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Socially — Full-Stack Scalable Social Networking Platform — Alisam Srivardhan</title>
+  <link rel="icon" type="image/svg+xml" href="asv-monogram.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+  <script src="ink-transition.js"></script>
+</head>
+<body>
+<div class="noise"></div>
+<div class="scroll-prog" id="scrollProg"></div>
+
+<!-- NAVIGATION -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand" aria-label="Alisam Srivardhan Home">
+      <img src="asv-logo.png" alt="ASV Logo" class="brand-logo" width="48" height="36" />
+    </a>
+
+    <div class="nav-links" aria-label="Main navigation">
+      <a href="about.html">About</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="coding.html">Coding</a>
+      <a href="certifications.html">Achievements</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <a href="mailto:alisamsrivardhan72@gmail.com?subject=Inquiry%20regarding%20Socially%20%E2%80%94%20Full-Stack%20Scalable%20Social%20Networking%20Platform" class="nav-cta">
+      Email Me
+    </a>
+
+    <button class="burger" id="burger" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAVIGATION -->
+<div class="mob-nav" id="mobNav" aria-hidden="true">
+  <a href="about.html">About</a>
+  <a href="projects.html" class="active">Projects</a>
+  <a href="coding.html">Coding</a>
+  <a href="certifications.html">Achievements</a>
+  <a href="resume.html">Resume</a>
+  <a href="contact.html">Contact</a>
+  <a href="mailto:alisamsrivardhan72@gmail.com?subject=Inquiry%20regarding%20Socially%20%E2%80%94%20Full-Stack%20Scalable%20Social%20Networking%20Platform" class="mob-nav-cta">
+    Email Me &rarr;
+  </a>
+</div>
+
+<!-- PROJECT DETAIL HERO -->
+<header class="pdetail-hero">
+  <div class="wrap">
+    <a href="projects.html#socially" class="pdetail-back-link">
+      &larr; Back to Projects Deck
+    </a>
+
+    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+      <span style="font-family: var(--mono); font-size: 13px; color: var(--olive); font-weight: 700; letter-spacing: 0.1em;">03 // SPECIFICATION</span>
+      <span style="font-family: var(--mono); font-size: 11px; color: var(--ink3); background: var(--bg2); padding: 3px 12px; border-radius: 50px; border: 1px solid var(--border);">Full-Stack MERN · Cloud CDN · Dual-Token Auth</span>
+    </div>
+
+    <h1 class="pdetail-h1">Socially — Full-Stack Scalable Social Networking Platform</h1>
+    <p class="pdetail-lead">A responsive full-stack social network engineered with React.js, Express.js, and MongoDB Atlas. Features rich media publishing with Cloudinary CDN transformations, nested discussion threads, optimistic feed interactions, and dual-token JWT authentication.</p>
+
+    <!-- Project Action Controls -->
+    <div class="pdetail-actions-bar">
+      <a href="https://socially-omega-seven.vercel.app" target="_blank" rel="noopener" class="btn-primary" style="gap: 8px;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        View Live Project &nearr;
+      </a>
+
+      <a href="https://github.com/Vardhan-1806/Socially" target="_blank" rel="noopener" class="btn-outline" style="gap: 8px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        View GitHub Repository &nearr;
+      </a>
+
+      <span style="font-family: var(--mono); font-size: 11.5px; color: var(--olive); margin-left: auto; display: flex; align-items: center; gap: 6px;">
+        <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--olive); display: inline-block;"></span>
+        Live & Deployed on Vercel + Render
+      </span>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN CONTENT & TELEMETRY -->
+<main class="sec">
+  <div class="wrap">
+    <div class="pdetail-layout">
+      <!-- Deep Technical Narrative -->
+      <div class="pdetail-main-content">
+
+        <!-- Visual Screenshot Gallery Frame -->
+        <div class="pdetail-section-card" style="padding: 0; overflow: hidden;">
+          <div class="deck-preview-chrome" style="position: relative;">
+            <div class="deck-chrome-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <span class="deck-chrome-url">https://socially-omega-seven.vercel.app</span>
+            <span class="deck-chrome-status">Production Verified</span>
+          </div>
+
+          <div style="background: linear-gradient(145deg, #1f1c19 0%, #151311 100%); padding: 60px 32px; text-align: center; color: #f2eee4;">
+            <div style="font-size: 48px; margin-bottom: 12px;">🖼️</div>
+            <div style="font-family: var(--mono); font-size: 13px; color: #d4af37; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; margin-bottom: 6px;">
+              Architectural Screenshot &amp; UI Preview Frame
+            </div>
+            <p style="font-size: 13px; color: rgba(255,255,255,0.6); max-width: 520px; margin: 0 auto; line-height: 1.6;">
+              Dedicated capture canvas for Socially — Full-Stack Scalable Social Networking Platform. Configured for live interactive screenshots.
+            </p>
+          </div>
+        </div>
+
+        <!-- 1. Problem Statement -->
+        <article class="pdetail-section-card">
+          <h2>Problem Statement</h2>
+          <p>Many modern web applications suffer from sluggish user interaction feedback, unoptimized media delivery causing high data bandwidth usage, and vulnerable authentication flows relying on insecure LocalStorage token persistence.</p>
+        </article>
+
+        <!-- 2. Project Objectives -->
+        <article class="pdetail-section-card">
+          <h2>Project Objectives</h2>
+          <ul>
+            <li>Deliver an instant, responsive social browsing experience with optimistic UI updates for likes and comments.</li>
+            <li>Implement an automated media upload pipeline with on-the-fly image optimization and global CDN caching.</li>
+            <li>Protect user accounts with secure dual-token authentication (Access Token + Refresh Token stored in HTTP-only cookies).</li>
+            <li>Deploy a resilient multi-cloud architecture with Vercel edge hosting for the frontend and Render for API services.</li>
+          </ul>
+        </article>
+
+        <!-- 3. System Architecture & Workflow -->
+        <article class="pdetail-section-card">
+          <h2>System Architecture &amp; Workflow</h2>
+          <p>
+            The platform is structured with distinct separation of concerns, decoupling state storage, authentication validation, business domain services, and client interface layers:
+          </p>
+          <pre class="pdetail-diagram-box"><code>┌────────────────────────────────────────────────────────┐
+│                   React.js SPA (Vercel)                │
+│    Public Feed  │  Post Creator  │  Profile Timeline   │
+└───────────────────────────┬────────────────────────────┘
+                            │ HTTPS / HTTP-Only Cookies
+┌───────────────────────────▼────────────────────────────┐
+│              Express.js REST API (Render)              │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
+│  │ JWT Refresh  │  │ Feed Service │  │ Media Upload │  │
+│  └──────────────┘  └──────────────┘  └──────────────┘  │
+└─────────────┬─────────────────────────────┬────────────┘
+              │                             │
+┌─────────────▼─────────────┐ ┌─────────────▼────────────┐
+│   MongoDB Atlas Cluster   │ │    Cloudinary Image CDN  │
+│  Users, Posts, Comments   │ │    Automatic WebP/AVIF   │
+└───────────────────────────┘ └──────────────────────────┘</code></pre>
+        </article>
+
+        <!-- 4. Features & Functionality -->
+        <article class="pdetail-section-card">
+          <h2>Key Features &amp; Functionality</h2>
+          <ul>
+            <li>Interactive Public Timelines: Real-time public feeds with client-side optimistic UI updates for instant heart/like feedback.</li>
+            <li>Cloud Media Processing: Direct integration with Cloudinary providing automatic image compression, WebP conversion, and aspect ratio crop swatches.</li>
+            <li>Nested Threaded Comments: Structured conversation trees allowing multi-level community discussions with pagination.</li>
+            <li>Dual-Token Refresh Rotation: Secure access token expiration (15m) coupled with rotating refresh tokens stored in HTTP-only cookies.</li>
+            <li>Personalized Profile Timelines: User activity aggregation displaying created posts, bookmarked items, and follower relationships.</li>
+          </ul>
+        </article>
+
+        <!-- 5. Individual Engineering Ownership -->
+        <article class="pdetail-section-card">
+          <h2>My Engineering Contributions</h2>
+          <p>
+            As sole developer / lead contributor on this system, my core engineering responsibilities included:
+          </p>
+          <ul>
+            <li>Built modular React components with accessible form validation and responsive mobile drawer navigation.</li>
+            <li>Implemented backend Express routes, controllers, and Mongoose schemas with indexed feed queries.</li>
+            <li>Engineered the Cloudinary upload middleware handling file size sanitization, format conversion, and secure cloud storage.</li>
+            <li>Configured multi-cloud deployment connecting Vercel frontend with containerized Render backend.</li>
+          </ul>
+        </article>
+
+        <!-- 6. Challenges Faced & Solutions -->
+        <article class="pdetail-section-card">
+          <h2>Engineering Challenges &amp; Solutions</h2>
+          <ul>
+            <li>Challenge: High latency and UI freeze when users upload multi-megabyte mobile camera photos.<br><span style="color: var(--ink3); font-size: 13.5px;">Solution: Implemented asynchronous Cloudinary background transcoding with progressive image placeholder blurs and automatic format adaptation (AVIF/WebP).</span></li>
+            <li>Challenge: Race conditions during high-volume simultaneous like/unlike requests.<br><span style="color: var(--ink3); font-size: 13.5px;">Solution: Replaced naive read-modify-write patterns with atomic MongoDB $addToSet and $pull operations to ensure counter integrity.</span></li>
+          </ul>
+        </article>
+
+        <!-- 7. Future Enhancements -->
+        <article class="pdetail-section-card">
+          <h2>Future Scalability Roadmap</h2>
+          <ul>
+            <li>WebSocket Push Notifications: Real-time alert notifications when another user interacts with your posts.</li>
+            <li>Direct Messaging: End-to-end encrypted 1-on-1 private messaging.</li>
+          </ul>
+        </article>
+
+      </div>
+
+      <!-- Sticky Telemetry Sidebar -->
+      <aside class="pdetail-sidebar">
+        <!-- Telemetry Card -->
+        <div class="pdetail-stat-card">
+          <div style="font-family: var(--mono); font-size: 11px; color: var(--olive); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; margin-bottom: 12px;">
+            System Telemetry
+          </div>
+          
+          <div class="pdetail-stat-row">
+            <span class="pdetail-stat-label">Frontend Stack</span>
+            <span class="pdetail-stat-val">React.js (Vercel)</span>
+          </div>
+          <div class="pdetail-stat-row">
+            <span class="pdetail-stat-label">Backend Runtime</span>
+            <span class="pdetail-stat-val">Node / Express (Render)</span>
+          </div>
+          <div class="pdetail-stat-row">
+            <span class="pdetail-stat-label">Database</span>
+            <span class="pdetail-stat-val">MongoDB Atlas</span>
+          </div>
+          <div class="pdetail-stat-row">
+            <span class="pdetail-stat-label">Media CDN</span>
+            <span class="pdetail-stat-val">Cloudinary Edge</span>
+          </div>
+          <div class="pdetail-stat-row">
+            <span class="pdetail-stat-label">Auth Model</span>
+            <span class="pdetail-stat-val">Dual-Token JWT</span>
+          </div>
+          <div class="pdetail-stat-row">
+            <span class="pdetail-stat-label">Feed Architecture</span>
+            <span class="pdetail-stat-val">Optimistic UI</span>
+          </div>
+        </div>
+
+        <!-- Technology Stack Card -->
+        <div class="pdetail-stat-card">
+          <div style="font-family: var(--mono); font-size: 11px; color: var(--olive); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; margin-bottom: 12px;">
+            Technologies Deployed
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+            <span class="tag">React.js</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Express.js</span>
+            <span class="tag">MongoDB Atlas</span>
+            <span class="tag">Cloudinary</span>
+            <span class="tag">Vercel</span>
+            <span class="tag">Render</span>
+            <span class="tag">JWT Auth</span>
+          </div>
+        </div>
+
+        <!-- Direct Actions Card -->
+        <div class="pdetail-stat-card" style="background: var(--bg2);">
+          <div style="font-family: var(--mono); font-size: 11px; color: var(--ink); font-weight: 700; margin-bottom: 8px;">
+            Inquire About This System
+          </div>
+          <p style="font-size: 12.5px; color: var(--ink2); margin-bottom: 14px; line-height: 1.5;">
+            Interested in architecture review, code walkthrough, or collaboration?
+          </p>
+          <a href="mailto:alisamsrivardhan72@gmail.com?subject=Inquiry%20regarding%20Socially%20%E2%80%94%20Full-Stack%20Scalable%20Social%20Networking%20Platform" class="btn-primary" style="width: 100%; justify-content: center; padding: 10px 16px; font-size: 13px;">
+            Email About Project &rarr;
+          </a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<!-- UNIVERSAL PERSISTENT FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div class="foot-copy">
+        Alisam Srivardhan &middot; <span class="current-year"></span> &middot; Software Engineer
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11.5px; color: var(--olive);">
+        <span style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #47A248; box-shadow: 0 0 6px rgba(71,162,72,0.6);"></span>
+        <span>Available for Software Engineering Internships &middot; Hyderabad / Remote</span>
+      </div>
+    </div>
+
+    <!-- Persistent Verified Social & Coding Profiles -->
+    <div class="persistent-foot-socials" aria-label="Professional and Coding Profiles">
+      <a href="https://github.com/Vardhan-1806" target="_blank" rel="noopener" class="pfoot-link" title="GitHub Profile">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="https://linkedin.com/in/alisam-srivardhan-291124332" target="_blank" rel="noopener" class="pfoot-link" title="LinkedIn Profile">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://leetcode.com/u/Vardhann13/" target="_blank" rel="noopener" class="pfoot-link" title="LeetCode Profile">
+        <svg viewBox="0 0 24 24"><path d="M13.48 2.34a1.37 1.37 0 0 0-1.94 0L5.7 8.18a4.42 4.42 0 0 0 0 6.24l4.44 4.44a4.42 4.42 0 0 0 6.24 0l2.02-2.02a1.37 1.37 0 1 0-1.94-1.94l-2.02 2.02a1.68 1.68 0 0 1-2.37 0l-4.44-4.44a1.68 1.68 0 0 1 0-2.37l5.84-5.84a1.37 1.37 0 0 0 0-1.93ZM9.36 14.5a1.37 1.37 0 0 0 0 2.74h8.9a1.37 1.37 0 0 0 0-2.74h-8.9Z"/></svg>
+        LeetCode (325)
+      </a>
+      <a href="https://www.codechef.com/users/vardhann18" target="_blank" rel="noopener" class="pfoot-link" title="CodeChef Profile">
+        <span style="font-size: 14px;">👨‍🍳</span>
+        CodeChef (1119★)
+      </a>
+      <a href="https://instagram.com/vardhan_114_" target="_blank" rel="noopener" class="pfoot-link" title="Instagram Profile">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        Instagram
+      </a>
+      <a href="mailto:alisamsrivardhan72@gmail.com" class="pfoot-link" title="Direct Email">
+        <span style="font-size: 13px;">✉️</span>
+        Email
+      </a>
+    </div>
+
+    <div class="foot-actions">
+      <button onclick="window.replayAsvIntro()" class="foot-replay-btn" title="Replay Cinematic Intro">🎬 Replay Intro</button>
+      <a href="#" class="foot-top">&uarr; Top</a>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>

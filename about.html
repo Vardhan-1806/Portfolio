@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alisam Srivardhan — About</title>
+  <link rel="icon" type="image/svg+xml" href="asv-monogram.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+  <script src="ink-transition.js"></script>
+</head>
+<body>
+<div class="noise"></div>
+<div class="scroll-prog" id="scrollProg"></div>
+
+<!-- NAVIGATION -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand" aria-label="Alisam Srivardhan Home">
+      <img src="asv-logo.png" alt="ASV Logo" class="brand-logo" width="48" height="36" />
+    </a>
+
+    <div class="nav-links" aria-label="Main navigation">
+      <a href="about.html" class="active">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="coding.html">Coding</a>
+      <a href="certifications.html">Achievements</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <a href="mailto:alisamsrivardhan72@gmail.com?subject=Opportunity%20Inquiry" class="nav-cta">
+      Email Me
+    </a>
+
+    <button class="burger" id="burger" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAVIGATION -->
+<div class="mob-nav" id="mobNav" aria-hidden="true">
+  <a href="about.html" class="active">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="coding.html">Coding</a>
+  <a href="certifications.html">Achievements</a>
+  <a href="resume.html">Resume</a>
+  <a href="contact.html">Contact</a>
+  <a href="mailto:alisamsrivardhan72@gmail.com?subject=Opportunity%20Inquiry" class="mob-nav-cta">
+    Email Me &rarr;
+  </a>
+</div>
+
+<!-- PAGE HEADER -->
+<header class="page-hero">
+  <div class="wrap page-hero-inner">
+    <p class="page-hero-tag rv">Background &amp; Philosophy</p>
+    <h1 class="rv d1">Behind the code.<br><em>Alisam Srivardhan.</em></h1>
+    <p class="rv d2">
+      Full-Stack Developer · Competitive Programmer · Artist · Gym Discipline.<br>
+      B.Tech Computer Science at BVRIT Narsapur · CGPA: 8.88 · Class of 2028.
+    </p>
+  </div>
+</header>
+
+<!-- MAIN ABOUT SECTION -->
+<section class="sec">
+  <div class="wrap">
+    <div class="about-layout">
+      <!-- Left: Real Photo + Fast Facts -->
+      <div class="about-photo-wrap rv">
+        <div class="about-photo-frame" id="aboutPhotoFrame" data-drawn="false" title="Click to complete drawing immediately">
+          <!-- Canvas for real-time pencil sketching -->
+          <canvas id="sketchCanvas" width="340" height="440"></canvas>
+
+          <!-- Final Photograph (Transitions after sketch completes) -->
+          <img
+            id="finalPhotoImg"
+            class="about-photo-final"
+            src="photo.jpg"
+            alt="Alisam Srivardhan photograph"
+            width="340"
+            height="440"
+          />
+
+          <!-- Realistic Visible Drawing Pencil -->
+          <div id="aboutDrawPencil" class="about-draw-pencil" aria-hidden="true">
+            <svg width="44" height="114" viewBox="0 0 54 140" fill="none">
+              <!-- Wooden Hexagonal Barrel -->
+              <polygon points="18,35 27,35 27,110 18,110" fill="#c48c56"/>
+              <polygon points="27,35 36,35 36,110 27,110" fill="#dfa56b"/>
+              <polygon points="36,35 44,35 44,110 36,110" fill="#9d6d3f"/>
+              <!-- Brass Ferrule -->
+              <rect x="18" y="24" width="26" height="11" fill="#d9b147"/>
+              <line x1="18" y1="28" x2="44" y2="28" stroke="#b08b2d" stroke-width="1"/>
+              <line x1="18" y1="32" x2="44" y2="32" stroke="#b08b2d" stroke-width="1"/>
+              <!-- Eraser -->
+              <path d="M 18 24 C 18 16, 44 16, 44 24 Z" fill="#d6685f"/>
+              <!-- Sharpened Wood Cone -->
+              <polygon points="18,110 44,110 31,134" fill="#eed9bd"/>
+              <!-- Graphite Lead Tip -->
+              <polygon points="27,126 35,126 31,139" fill="#2b2520"/>
+            </svg>
+          </div>
+
+          <div class="about-draw-status" id="aboutDrawStatus">Pencil Drawing in Progress...</div>
+        </div>
+
+        <div style="margin-top: 20px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; box-shadow: 0 4px 18px rgba(0,0,0,0.25);">
+          <div style="font-family: var(--mono); font-size: 11px; color: var(--olive); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; margin-bottom: 12px;">
+            Quick Facts
+          </div>
+          <div style="font-size: 13.5px; color: var(--ink2); line-height: 1.8;">
+            📍 Hyderabad, Telangana, India<br>
+            🎓 BVRIT Narsapur · B.Tech CSE (2024–2028)<br>
+            📈 CGPA: 8.88 / 10<br>
+            💼 Ex-Intern @ Varzo (Front-End Development)<br>
+            ⌨️ LeetCode Rating 1,482 · CodeChef 1,119<br>
+            🏅 50-Day Max Streak (50 Days Badge 2026)<br>
+            ✏️ Classical Pencil Sketching &amp; UI Architecture<br>
+            🏋️ Consistent Gym Training
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Detailed Narrative & Timeline -->
+      <div class="about-body">
+        <div class="rv">
+          <p>
+            I'm <strong>Alisam Srivardhan</strong>, a computer science student and software engineer based in Hyderabad.
+            My work is anchored at the intersection of technical rigor, algorithmic problem solving, and aesthetic precision.
+          </p>
+          <p>
+            Whether I am implementing a RAG-based AI legal assistant with sub-2-second retrieval times,
+            crafting responsive interfaces with pixel-level care, or tackling medium and hard graph problems on LeetCode,
+            I approach software with the patient observation of a draftsman and the progressive overload principle of a lifter.
+          </p>
+          <p id="artistry">
+            <strong>Art teaches observation.</strong> Long before writing code, I filled sketchbooks with pencil portraits.
+            Drawing trains you to observe negative space, balance, and proportions rather than rushing to make assumptions.
+            In engineering, that same skill means seeing edge cases in an algorithm, identifying UI hierarchy flaws,
+            and designing systems where every component serves an intentional purpose.
+          </p>
+          <p>
+            <strong>Fitness teaches consistency.</strong> A 50-day streak on LeetCode or a complex full-stack deployment
+            does not happen through bursts of motivation; it happens through systems and habits.
+            The discipline built in the gym carries straight into debugging race conditions and shipping clean, maintainable code.
+          </p>
+        </div>
+
+        <!-- Career & Education Timeline -->
+        <div class="timeline rv d1">
+          <div class="sec-label" style="margin-bottom: 24px;">
+            <span class="sl-n">01</span><span class="sl-bar"></span><span class="sl-t">Experience &amp; Education</span>
+          </div>
+
+          <!-- Varzo Internship -->
+          <div class="timeline-item">
+            <div class="ti-year">2026<br><span style="font-size:11px;color:var(--ink3);">Feb – Mar</span></div>
+            <div>
+              <div class="live-pill" style="margin-bottom: 8px;">Internship</div>
+              <div class="ti-title">Front-End Development Intern</div>
+              <div class="ti-org">Varzo · Online</div>
+              <div class="ti-desc">
+                Engineered front-end interfaces for an e-commerce platform using HTML, CSS, and modern JavaScript.
+                Built responsive layouts matching design specifications, converted mockups into functional web applications,
+                and collaborated with senior engineers in an agile team workflow.
+              </div>
+            </div>
+          </div>
+
+          <!-- Projects Milestone -->
+          <div class="timeline-item">
+            <div class="ti-year">2026<br><span style="font-size:11px;color:var(--ink3);">Jan – Present</span></div>
+            <div>
+              <div class="tag hi" style="margin-bottom: 8px;">Featured Project</div>
+              <div class="ti-title">LexAssist — AI Legal Assistant</div>
+              <div class="ti-org">Production AI Application · Railway Deployed</div>
+              <div class="ti-desc">
+                Architected a RAG-powered legal question-answering assistant reducing latency to under 2 seconds.
+                Constructed an 8-collection MongoDB database with role-based access control (Citizen, Lawyer, Admin),
+                JWT security, and appointment booking. Load-tested to 50+ concurrent sessions with Loader.io.
+              </div>
+            </div>
+          </div>
+
+          <!-- Socially Project -->
+          <div class="timeline-item">
+            <div class="ti-year">2026</div>
+            <div>
+              <div class="tag" style="margin-bottom: 8px;">Full-Stack Application</div>
+              <div class="ti-title">Socially — Social Media Application</div>
+              <div class="ti-org">MERN Stack · Vercel + Render</div>
+              <div class="ti-desc">
+                Created a full-stack social media application supporting authentication, multi-format post creation,
+                image uploads via Cloudinary, live feeds, likes, and comment threads.
+              </div>
+            </div>
+          </div>
+
+          <!-- Vanskart Clone -->
+          <div class="timeline-item">
+            <div class="ti-year">2025<br><span style="font-size:11px;color:var(--ink3);">May</span></div>
+            <div>
+              <div class="tag" style="margin-bottom: 8px;">UI Engineering</div>
+              <div class="ti-title">Vanskart — E-Commerce Platform</div>
+              <div class="ti-org">Front-End Engineering Clone</div>
+              <div class="ti-desc">
+                Pixel-accurate clone of Lenskart's e-commerce platform. Implemented responsive flexbox and CSS grid layouts,
+                sticky headers, promotional banners, product cards with hover states, and dynamic category filters.
+              </div>
+            </div>
+          </div>
+
+          <!-- College -->
+          <div class="timeline-item">
+            <div class="ti-year">2024 – 2028</div>
+            <div>
+              <div class="tag hi" style="margin-bottom: 8px;">Undergraduate</div>
+              <div class="ti-title">B.Tech in Computer Science Engineering</div>
+              <div class="ti-org">BVRIT Narsapur · Hyderabad, TS · CGPA: 8.88</div>
+              <div class="ti-desc">
+                Focusing on Data Structures &amp; Algorithms, Object-Oriented Programming, Database Management Systems,
+                Computer Networks, and System Design. Active competitor in national hackathons and collegiate coding contests.
+              </div>
+            </div>
+          </div>
+
+          <!-- Intermediate -->
+          <div class="timeline-item">
+            <div class="ti-year">2022 – 2024</div>
+            <div>
+              <div class="tag" style="margin-bottom: 8px;">Higher Secondary</div>
+              <div class="ti-title">Intermediate (MPC)</div>
+              <div class="ti-org">Sri Chaitanya Jr Kalasala · Hyderabad, TS · 908 / 1000</div>
+              <div class="ti-desc">
+                Intensive preparation in Mathematics, Physics, and Chemistry, cultivating strong analytical and problem-solving fundamentals.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- SECTION: 3D TECH STACK & INTERACTIVE PHYSICS SANDBOX -->
+<section class="sec sec-alt" id="tech">
+  <div class="wrap">
+    <div class="sec-label rv">
+      <span class="sl-n">02</span><span class="sl-bar"></span><span class="sl-t">Technology Stack</span>
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 32px;">
+      <div>
+        <h2 class="sec-h rv" style="margin-bottom: 6px;">
+          Tools &amp; technologies<br><em>I build with.</em>
+        </h2>
+        <div style="font-family: var(--mono); font-size: 11.5px; color: var(--olive); font-weight: 600;">
+          Click any card to inspect verified production code &amp; architectural rationale &rarr;
+        </div>
+      </div>
+      <div class="sec-sub rv" style="max-width: 480px; font-size: 15px; color: var(--ink2); line-height: 1.6;">
+        Every technology represents verified hands-on production code, algorithm implementations, or architectural pipelines. No invented percentages.
+      </div>
+    </div>
+
+    
+    <div class="tech-view-controls rv d1">
+      <div class="tech-mode-switcher" role="tablist" aria-label="Tech Stack presentation mode">
+        <button class="tech-mode-btn is-active" id="btnModeUniverse" data-mode="universe">
+          <span class="mode-icon">🌌</span> 3D Dimensional Universe
+        </button>
+        <button class="tech-mode-btn" id="btnModeSandbox" data-mode="sandbox">
+          <span class="mode-icon">🎮</span> Interactive Physics Sandbox
+        </button>
+      </div>
+
+      <div class="tech-category-pills" id="techCategoryPills" role="tablist">
+        <button class="tech-pill active" data-cat="all">All Stack (18)</button>
+        <button class="tech-pill" data-cat="programming">Programming</button>
+        <button class="tech-pill" data-cat="frontend">Frontend</button>
+        <button class="tech-pill" data-cat="backend">Backend</button>
+        <button class="tech-pill" data-cat="database">Database</button>
+        <button class="tech-pill" data-cat="tools">Tools & Security</button>
+        <button class="tech-pill" data-cat="ai-engineering">AI Engineering</button>
+      </div>
+    </div>
+  
+    <div class="tech-universe-view" id="techUniverseView">
+      <div class="tech-cat-block" data-category="programming">
+        <div class="tech-cat-header">
+          <div class="tech-cat-indicator"></div>
+          <div>
+            <h3 class="tech-cat-title">Programming Languages</h3>
+            <p class="tech-cat-subtitle">Core algorithmic & systems foundation</p>
+          </div>
+        </div>
+        <div class="tech-3d-grid">
+    
+        <div class="tech-3d-tile" data-cat="programming" style="--tech-accent: #E76F00;" onclick="window.openStackInspector && window.openStackInspector('Java')">
+          <div class="tech-tile-inner">
+            <div class="tech-tile-glare"></div>
+            <div class="tech-tile-logo" style="background: rgba(231,111,0,0.08); border-color: #E76F0022;">
+              <svg viewBox="0 0 24 24" width="36" height="36"><path fill="#5382A1" d="M8.8 19.3c3.4.2 6.5-.4 9.1-1.6.4-.2.9.2.6.6-1.5 2.1-4.8 3.1-8.5 2.7-3.9-.4-5.3-2.3-5-2.6.4-.3 1.9.8 3.8.9z"/><path fill="#E76F00" d="M12.9 14.8c1.9 1.9-1.2 3.6-1.2 3.6s3.3-.9 2.2-3.1c-1-2.1-3.1-3.1-4.2-4.8-.8-1.3-.4-2.5-.4-2.5s-.8 1.4-.4 2.8c.6 1.8 2.3 2.3 4 4z"/><path fill="#5382A1" d="M17.4 15.6c.4-.2.8.2.5.6-1.1 1.4-3.1 2.3-5.7 2.3-3.1 0-5.5-1.2-5.5-1.2s1.4.6 3.9.6c3.2 0 5.4-1.2 6.8-2.3z"/><path fill="#E76F00" d="M8.2 11.2c-.4 1.1-.3 2.1.2 2.8.8 1 2.1 1.2 3.3 1.7 1.7.7 3.3 1.6 3.3 3.6 0 0 .5-1.5-1.1-2.8-1.5-1.1-2.9-1.4-4-2.1-1-1-1.3-1.9-1.7-3.2z"/><path fill="#5382A1" d="M19.4 18.2c-.8.9-2.1 1.7-3.8 2.2-3.2.9-7.5.8-10.2-.4-.3-.1-.5-.5-.1-.7.4-.2 1.4.4 3.7.6 3.6.3 7.8-.3 9.7-1.4.3-.2.7.2.7.5z"/></svg>
+            </div>
+            <div class="tech-tile-info">
+              <div class="tech-tile-name">Java</div>
+              <div class="tech-tile-scope">Language · OOP · Concurrency · DSA</div>
+              <div class="tech-inspect-badge">
+                <span>&lt;/&gt;</span> Inspect Real Code
+              </div>
+            </div>
+            <div class="tech-tile-badge">Verified Stack</div>
+          </div>
+        </div>
+      
+        <div class="tech-3d-tile" data-cat="programming" style="--tech-accent: #00599C;" onclick="window.openStackInspector && window.openStackInspector('C / C++')">
+          <div class="tech-tile-inner">
+            <div class="tech-tile-glare"></div>
+            <div class="tech-tile-logo" style="background: rgba(0,89,156,0.08); border-color: #00599C22;">
+              <svg viewBox="0 0 24 24" width="36" height="36"><rect width="24" height="24" rx="5" fill="#00599C"/><text x="50%" y="62%" dominant-baseline="middle" text-anchor="middle" font-family="'DM Mono', monospace" font-size="11" font-weight="bold" fill="#ffffff">C++</text></svg>
+            </div>
+            <div class="tech-tile-info">
+              <div class="tech-tile-name">C / C++</div>
+              <div class="tech-tile-scope">DSA · Systems · Memory Management</div>
+              <div class="tech-inspect-badge">
+                <span>&lt;/&gt;</span> Inspect Real Code
+              </div>
+            </div>
+            <div class="tech-tile-badge">Verified Stack</div>
+          </div>
+        </div>
+      
+        <div class="tech-3d-tile" data-cat="programming" style="--tech-accent: #3776AB;" onclick="window.openStackInspector && window.openStackInspector('Python')">
+          <div class="tech-tile-inner">
+            <div class="tech-tile-glare"></div>
+            <div class="tech-tile-logo" style="background: rgba(55,118,171,0.08); border-color: #3776AB22;">
+              <svg viewBox="0 0 24 24" width="36" height="36"><path fill="#3776AB" d="M11.9 2c-4.5 0-4.2 1.9-4.2 1.9l.01 2h4.3v.6H5.9S3.5 6.2 3.5 10.7c0 4.5 2.1 4.3 2.1 4.3h1.2v-1.8c0-2.1 1.8-2.1 1.8-2.1h4.2s1.7 0 1.7-1.7V4.2S14.9 2 11.9 2zm-1.2 1.2a.7.7 0 1 1 0 1.4.7.7 0 0 1 0-1.4z"/><path fill="#FFD43B" d="M12.1 22c4.5 0 4.2-1.9 4.2-1.9l-.01-2h-4.3v-.6h6.1s2.4.3 2.4-4.2c0-4.5-2.1-4.3-2.1-4.3h-1.2v1.8c0 2.1-1.8 2.1-1.8 2.1H11.2s-1.7 0-1.7 1.7v5.2s-.4 2.2 2.6 2.2zm1.2-1.2a.7.7 0 1 1 0-1.4.7.7 0 0 1 0 1.4z"/></svg>
+            </div>
+            <div class="tech-tile-info">
+              <div class="tech-tile-name">Python</div>
+              <div class="tech-tile-scope">NLP · RAG · Automation · Data Structures</div>
+              <div class="tech-inspect-badge">
+                <span>&lt;/&gt;</span> Inspect Real Code
+              </div>
+            </div>
+            <div class="tech-tile-badge">Verified Stack</div>
+          </div>
+        </div>
+      
+        <div class="tech-3d-tile" data-cat="programming" style="--tech-accent: #F7DF1E;" onclick="window.openStackInspector && window.openStackInspector('JavaScript')">
+          <div class="tech-tile-inner">
+            <div class="tech-tile-glare"></div>
+            <div class="tech-tile-logo" style="background: rgba(247,223,30,0.08); border-color: #F7DF1E22;">
+              <svg viewBox="0 0 24 24" width="36" height="36"><rect width="24" height="24" rx="4" fill="#F7DF1E"/><path fill="#000000" d="M6.5 18.2c.4.7 1.1 1.2 2.1 1.2 1.2 0 2-.6 2-1.9v-6.9h-1.9v6.8c0 .5-.2.8-.7.8-.4 0-.6-.2-.8-.6l-.7.6zm6.8 0c.5.8 1.4 1.3 2.7 1.3 1.8 0 2.8-1 2.8-2.4 0-1.5-1-2.1-2.3-2.6-.9-.4-1.3-.7-1.3-1.3 0-.5.4-.9 1.1-.9.6 0 1.1.3 1.4.8l1.4-.9c-.6-1-1.6-1.5-2.8-1.5-1.7 0-2.8 1-2.8 2.3 0 1.4.9 2 2.2 2.5 1 .4 1.4.8 1.4 1.4 0 .6-.5 1-1.3 1-.8 0-1.3-.4-1.7-1l-1.3.8z"/></svg>
+            </div>
+            <div class="tech-tile-info">
+              <div class="tech-tile-name">JavaScript</div>
+              <div class="tech-tile-scope">ES6+ · Asynchronous · DOM · V8 Runtimes</div>
+              <div class="tech-inspect-badge">
+                <span>&lt;/&gt;</span> Inspect Real Code
+              </div>
+            </div>
+            <div class="tech-tile-badge">Verified Stack</div>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="tech-cat-block" data-category="frontend">
+        <div class="tech-cat-header">
+          <div class="tech-cat-indicator"></div>
+          <div>
+            <h3 class="tech-cat-title">Frontend Engineering</h3>
+            <p class="tech-cat-subtitle">Responsive architectures & state management</p>
+          </div>
+        </div>
+        <div class="tech-3d-grid">
+    
+        <div class="tech-3d-tile" data-cat="frontend" style="--tech-accent: #61DAFB;" onclick="window.openStackInspector && window.openStackInspector('React.js')">
+          <div class="tech-tile-inner">
+            <div class="tech-tile-glare"></div>
+            <div class="tech-tile-logo" style="background: rgba(97,218,251,0.08); border-color: #61DAFB22;">
+              <svg viewBox="0 0 24 24" width="36" height="36"><ellipse cx="12" cy="12" rx="3.5" ry="9.5" fill="none" stroke="#61DAFB" stroke-width="1.2" transform="rotate(30 12 12)"/><ellipse cx="12" cy="12" rx="3.5" ry="9.5" fill="none" stroke="#61DAFB" stroke-width="1.2" transform="rotate(90 12 12)"/><ellipse cx="12" cy="12" rx="3.5" ry="9.5" fill="none" stroke="#61DAFB" stroke-width="1.2" transform="rotate(150 12 12)"/><circle cx="12" cy="12" r="1.8" fill="#61DAFB"/></svg>
+            </div>
+            <div class="tech-tile-info">
+              <div class="tech-tile-name">React.js</div>
+              <div class="tech-tile-scope">Hooks · State · UI · Virtual DOM</div>
+              <div class="tech-inspect-badge">
+                <span>&lt;/&gt;</span> Inspect Real Code
+              </div>
+            </div>
+            <div class="tech-tile-badge">Verified Stack</div>
+          </div>
+        </div>
+      
+        <div class="tech-3d-tile" data-cat="frontend" style="--tech-accent: #E34F26;" onclick="window.openStackInspector && window.openStackInspector('HTML5 & CSS3')">
+          <div class="tech-tile-inner">
+            <div class="tech-tile-glare"></div>
+            <div class="tech-tile-logo" style="background: rgba(227,79,38,0.08); border-color: #E34F2622;">
+              <svg viewBox="0 0 24 24" width="36" height="36"><path fill="#E34F26" d="M3 2l1.6 18.2L12 22l7.4-1.8L21 2H3zm15.1 5.3l-.2 2.1H8.8l.2 2.2h8.7l-.6 6.3-4.1 1.1-4.1-1.1-.3-3.1h2.1l.1 1.4 2.2.6 2.2-.6.2-2.5H6.5L5.8 4.7h12.5l-.2 2.6z"/></svg>
+            </div>
+            <div class="tech-tile-info">
+              <div class="tech-tile-name">HTML5 & CSS3</div>
+              <div class="tech-tile-scope">Semantic UI · Flex/Grid · 3D Transforms</div>
+              <div class="tech-inspect-badge">
+                <span>&lt;/&gt;</span> Inspect Real Code
+              </div>
+            </div>
+            <div class="tech-tile-badge">Verified Stack</div>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="tech-cat-block" data-category="backend">
+        <div class="tech-cat-header">
+          <div class="tech-cat-indicator"></div>
+          <div>
+            <h3 class="tech-cat-title">Backend Engineering</h3>
+            <p class="tech-cat-subtitle">Server runtimes, RESTful APIs & services</p>
+          </div>
+        </div>
+        <div class="tech-3d-grid">
+    
+        <div class="tech-3d-tile" data-cat="backend" style="--tech-accent: #339933;" onclick="window.openStackInspector && window.openStackInspector('Node.js')">
+          <div class="tech-tile-inner">
+            <div class="tech-tile-glare"></div>
+            <div class="tech-tile-logo" style="background: rgba(51,153,51,0.08); border-color: #33993322;">
+              <svg viewBox="0 0 24 24" width="36" height="36"><path fill="#339933" d="M12 2.2l8.5 4.9v9.8L12 21.8 3.5 16.9V7.1L12 2.2zm0 2.2L5.4 8.2v7.6L12 19.6l6.6-3.8V8.2L12 4.4z"/><path fill="#339933" d="M12 7.5a4.5 4.5 0 0 1 4.5 4.5c0 2.5-2 4.5-4.5 4.5a4.5 4.5 0 0 1-4.5-4.5c0-2.5 2-4.5 4.5-4.5z"/></svg>
+            </div>
+            <div class="tech-tile-info">
+              <div class="tech-tile-name">Node.js</div>
+              <div class="tech-tile-scope">Backend Runtime · Event Loop · Streams</div>
+              <div class="tech-inspect-badge">
+                <span>&lt;/&gt;</span> Inspect Real Code
+              </div>
+            </div>
+            <div class="tech-tile-badge">Verified Stack</div>
+          </div>
+        </div>
+      
+        <div class="tech-3d-tile" data-cat="backend" style="--tech-accent: #444444;" onclick="window.openStackInspector && window.openStackInspector('Express.js')">
+          <div class="tech-tile-inner">
+            <div class="tech-tile-glare"></div>
+            <div class="tech-tile-logo" style="background: rgba(68,68,68,0.08); border-color: #44444422;">
+              <svg viewBox="0 0 24 24" width="36" height="36"><text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" font-family="'DM Mono', monospace" font-size="14" font-weight="bold" fill="#362c24">ex</text><rect x="2" y="4" width="20" height="16" rx="4" fill="none" stroke="#362c24" stroke-width="1.8"/></svg>
+            </div>
+            <div class="tech-tile-info">
+              <div class="tech-tile-name">Express.js</div>
+              <div class="tech-tile-scope">RESTful APIs · Routing · Middleware Pipeline</div>
+              <div class="tech-inspect-badge">
+                <span>&lt;/&gt;</span> Inspect Real Code
+              </div>
+            </div>
+            <div class="tech-tile-badge">Verified Stack</div>
+          </div>
+        </div>
+      
+        <div class="tech-3d-tile" data-cat="backend" style="--tech-accent: #6DB33F;" onclick="window.openStackInspector && window.openStackInspector('Spring Boot')">
+          <div class="tech-tile-inner">
+            <div class="tech-tile-glare"></div>
+            <div class="tech-tile-logo" style="background: rgba(109,179,63,0.08); border-color: #6DB33F22;">
+              <svg viewBox="0 0 24 24" width="36" height="36"><path fill="#6DB33F" d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm4.5 14.5c-.8.8-2 .9-2.9.2a6 6 0 0 1-2.8-4.7c0-2.1 1.3-4.2 3.3-5.2.4-.2.8.2.6.6a5 5 0 0 0 1.2 5.5c.9.9 1.1 2.3.6 3.6z"/></svg>
+            </div>
+            <div class="tech-tile-info">
+              <div class="tech-tile-name">Spring Boot</div>
+              <div class="tech-tile-scope">Enterprise Microservices · Spring Data · REST</div>
+              <div class="tech-inspect-badge">
+                <span>&lt;/&gt;</span> Inspect Real Code
+              </div>
+            </div>
+            <div class="tech-tile-badge">Verified Stack</div>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="tech-cat-block" data-category="database">
+        <div class="tech-cat-header">
+          <div class="tech-cat-indicator"></div>
+          <div>
+            <h3 class="tech-cat-title">Database Architecture</h3>
+            <p class="tech-cat-subtitle">Relational schemas & document stores</p>
+          </div>
+        </div>
+        <div class="tech-3d-grid">
+    
+        <div class="tech-3d-tile" data-cat="database" style="--tech-accent: #47A248;" onclick="window.openStackInspector && window.openStackInspector('MongoDB')">
+          <div class="tech-tile-inner">
+            <div class="tech-tile-glare"></div>
+            <div class="tech-tile-logo" style="background: rgba(71,162,72,0.08); border-color: #47A24822;">
+              <svg viewBox="0 0 24 24" width="36" height="36"><path fill="#47A248" d="M12 2.2C11.5 3.5 7.5 9.7 7.5 13.5c0 4.1 2.8 6.9 4.5 7.8 1.7-.9 4.5-3.7 4.5-7.8 0-3.8-4-10-4.5-11.3zm0 17.6c-.2-.1-3-1.6-3-6.3 0-2.8 2.3-6.8 3-7.9.7 1.1 3 5.1 3 7.9 0 4.7-2.8 6.2-3 6.3z"/></svg>
+            </div>
+            <div class="tech-tile-info">
+              <div class="tech-tile-name">MongoDB</div>
+              <div class="tech-tile-scope">Aggregations · Atlas · Document Models</div>
+              <div class="tech-inspect-badge">
+                <span>&lt;/&gt;</span> Inspect Real Code
+              </div>
+            </div>
+            <div class="tech-tile-badge">Verified Stack</div>
+          </div>
+        </div>
+      
+        <div class="tech-3d-tile" data-cat="database" style="--tech-accent: #00758F;" onclick="window.openStackInspector && window.openStackInspector('SQL')">
+          <div class="tech-tile-inner">
+            <div class="tech-tile-glare"></div>
+            <div class="tech-tile-logo" style="background: rgba(0,117,143,0.08); border-color: #00758F22;">
+              <svg viewBox="0 0 24 24" width="36" height="36"><ellipse cx="12" cy="6" rx="8" ry="3" fill="#00758F"/><path fill="#00758F" d="M4 6v4c0 1.66 3.58 3 8 3s8-1.34 8-3V6c0 1.66-3.58 3-8 3S4 7.66 4 6z"/><path fill="#00758F" d="M4 11v4c0 1.66 3.58 3 8 3s8-1.34 8-3v-4c0 1.66-3.58 3-8 3s-8-1.34-8-3z"/><path fill="#00758F" d="M4 16v2c0 1.66 3.58 3 8 3s8-1.34 8-3v-2c0 1.66-3.58 3-8 3s-8-1.34-8-3z"/></svg>
+            </div>
+            <div class="tech-tile-info">
+              <div class="tech-tile-name">SQL</div>
+              <div class="tech-tile-scope">Relational Schemas · Indexing · Complex Joins</div>
+              <div class="tech-inspect-badge">
+                <span>&lt;/&gt;</span> Inspect Real Code
+              </div>
+            </div>
+            <div class="tech-tile-badge">Verified Stack</div>
+          </div>
+        </div>
+      
+        <div class="tech-3d-tile" data-cat="database" style="--tech-accent: #336791;" onclick="window.openStackInspector && window.openStackInspector('PostgreSQL')">
+          <div class="tech-tile-inner">
+            <div class="tech-tile-glare"></div>
+            <div class="tech-tile-logo" style="background: rgba(51,103,145,0.08); border-color: #33679122;">
+              <svg viewBox="0 0 24 24" width="36" height="36"><path fill="#336791" d="M12 2C6.5 2 2 6.5 2 12c0 4.8 3.4 8.8 8 9.8V15h-2v-3h2v-2c0-2.2 1.3-3.4 3.3-3.4 1 0 1.9.1 2.1.1v2.4h-1.4c-1.1 0-1.4.5-1.4 1.3v1.6h2.7l-.4 3h-2.3v6.8c4.6-1 8-5 8-9.8 0-5.5-4.5-10-10-10z"/></svg>
+            </div>
+            <div class="tech-tile-info">
+              <div class="tech-tile-name">PostgreSQL</div>
+              <div class="tech-tile-scope">ACID Transactions · Normalized Relations</div>
+              <div class="tech-inspect-badge">
+                <span>&lt;/&gt;</span> Inspect Real Code
+              </div>
+            </div>
+            <div class="tech-tile-badge">Verified Stack</div>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="tech-cat-block" data-category="tools">
+        <div class="tech-cat-header">
+          <div class="tech-cat-indicator"></div>
+          <div>
+            <h3 class="tech-cat-title">Tools, DevOps & Security</h3>
+            <p class="tech-cat-subtitle">Version workflows, containerization & authentication</p>
+          </div>
+        </div>
+        <div class="tech-3d-grid">
+    
+        <div class="tech-3d-tile" data-cat="tools" style="--tech-accent: #F05032;" onclick="window.openStackInspector && window.openStackInspector('Git & GitHub')">
+          <div class="tech-tile-inner">
+            <div class="tech-tile-glare"></div>
+            <div class="tech-tile-logo" style="background: rgba(240,80,50,0.08); border-color: #F0503222;">
+              <svg viewBox="0 0 24 24" width="36" height="36"><path fill="#F05032" d="M21.6 10.9L13.1 2.4c-.6-.6-1.5-.6-2.1 0L9.1 4.3l2.7 2.7c.6-.2 1.4 0 1.9.5.5.5.7 1.3.5 1.9l2.6 2.6c.6-.2 1.4 0 1.9.5.8.8.8 2 0 2.8-.8.8-2 .8-2.8 0-.6-.6-.7-1.4-.4-2.1l-2.4-2.4v5.3c.2.2.3.5.3.8 0 .8-.7 1.5-1.5 1.5s-1.5-.7-1.5-1.5c0-.5.2-.9.6-1.2V9.6c-.4-.3-.6-.7-.6-1.2 0-.6.3-1.1.8-1.4L8.7 4.3 2.4 10.6c-.6.6-.6 1.5 0 2.1l8.5 8.5c.6.6 1.5.6 2.1 0l8.6-8.6c.6-.5.6-1.4 0-1.7z"/></svg>
+            </div>
+            <div class="tech-tile-info">
+              <div class="tech-tile-name">Git & GitHub</div>
+              <div class="tech-tile-scope">Version Control · CI/CD · Actions Pipeline</div>
+              <div class="tech-inspect-badge">
+                <span>&lt;/&gt;</span> Inspect Real Code
+              </div>
+            </div>
+            <div class="tech-tile-badge">Verified Stack</div>
+          </div>
+        </div>
+      
+        <div class="tech-3d-tile" data-cat="tools" style="--tech-accent: #D63AFF;" onclick="window.openStackInspector && window.openStackInspector('JWT Security')">
+          <div class="tech-tile-inner">
+            <div class="tech-tile-glare"></div>
+            <div class="tech-tile-logo" style="background: rgba(214,58,255,0.08); border-color: #D63AFF22;">
+              <svg viewBox="0 0 24 24" width="36" height="36"><path fill="#D63AFF" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+            </div>
+            <div class="tech-tile-info">
+              <div class="tech-tile-name">JWT Security</div>
+              <div class="tech-tile-scope">Auth & RBAC · Dual-Token Cookies · Tokens</div>
+              <div class="tech-inspect-badge">
+                <span>&lt;/&gt;</span> Inspect Real Code
+              </div>
+            </div>
+            <div class="tech-tile-badge">Verified Stack</div>
+          </div>
+        </div>
+      
+        <div class="tech-3d-tile" data-cat="tools" style="--tech-accent: #2496ED;" onclick="window.openStackInspector && window.openStackInspector('Docker')">
+          <div class="tech-tile-inner">
+            <div class="tech-tile-glare"></div>
+            <div class="tech-tile-logo" style="background: rgba(36,150,237,0.08); border-color: #2496ED22;">
+              <svg viewBox="0 0 24 24" width="36" height="36"><path fill="#2496ED" d="M13.9 11.2h2v2h-2zm-2.7 0h2v2h-2zm-2.6 0h2v2h-2zm5.3-2.6h2v2h-2zm-2.7 0h2v2h-2zm-2.6 0h2v2h-2zm-2.7 0h2v2h-2zm5.3-2.6h2v2h-2zm-2.7 0h2v2h-2zm12 8.7c-.5-.4-1.6-.4-2.5 0-.2-1.3-1.1-2.4-2.5-2.8l-.5-.2-.3.4c-.6.9-1.6 1.4-2.7 1.4H2.4c-.4 1.8.2 4.1 1.7 5.8 1.7 1.8 4.2 2.7 7.7 2.7 7.3 0 11.6-4.6 11.6-8.7 0-.4 0-.7-.1-1.1l-.3.2z"/></svg>
+            </div>
+            <div class="tech-tile-info">
+              <div class="tech-tile-name">Docker</div>
+              <div class="tech-tile-scope">Containers · Images · Production Packaging</div>
+              <div class="tech-inspect-badge">
+                <span>&lt;/&gt;</span> Inspect Real Code
+              </div>
+            </div>
+            <div class="tech-tile-badge">Verified Stack</div>
+          </div>
+        </div>
+      
+        <div class="tech-3d-tile" data-cat="tools" style="--tech-accent: #FF9900;" onclick="window.openStackInspector && window.openStackInspector('AWS')">
+          <div class="tech-tile-inner">
+            <div class="tech-tile-glare"></div>
+            <div class="tech-tile-logo" style="background: rgba(255,153,0,0.08); border-color: #FF990022;">
+              <svg viewBox="0 0 24 24" width="36" height="36"><path fill="#FF9900" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.5 15.2c-2.9 0-5.1-1.3-6.5-3.3.3-.2.6-.4 1-.2 1.1 1.6 2.8 2.6 5.2 2.6 2.6 0 4.6-1.1 5.8-2.8.3-.4.8-.2.9.2-1.3 2.1-3.6 3.5-6.4 3.5zm4.8-5.4c-.4.5-1.1.7-1.9.7-.7 0-1.4-.2-1.8-.7-.4-.5-.6-1.2-.6-2.1 0-.9.2-1.6.6-2.1.4-.5 1.1-.7 1.8-.7.8 0 1.5.2 1.9.7.4.5.6 1.2.6 2.1 0 .9-.2 1.6-.6 2.1z"/></svg>
+            </div>
+            <div class="tech-tile-info">
+              <div class="tech-tile-name">AWS</div>
+              <div class="tech-tile-scope">Cloud Infrastructure · S3 · EC2 Foundations</div>
+              <div class="tech-inspect-badge">
+                <span>&lt;/&gt;</span> Inspect Real Code
+              </div>
+            </div>
+            <div class="tech-tile-badge">Verified Stack</div>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="tech-cat-block" data-category="ai-engineering">
+        <div class="tech-cat-header">
+          <div class="tech-cat-indicator"></div>
+          <div>
+            <h3 class="tech-cat-title">AI Engineering & Systems</h3>
+            <p class="tech-cat-subtitle">RAG pipelines, LLM orchestration & agents</p>
+          </div>
+        </div>
+        <div class="tech-3d-grid">
+    
+        <div class="tech-3d-tile" data-cat="ai-engineering" style="--tech-accent: #7C3AED;" onclick="window.openStackInspector && window.openStackInspector('RAG Systems')">
+          <div class="tech-tile-inner">
+            <div class="tech-tile-glare"></div>
+            <div class="tech-tile-logo" style="background: rgba(124,58,237,0.08); border-color: #7C3AED22;">
+              <svg viewBox="0 0 24 24" width="36" height="36"><path fill="#7C3AED" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+            </div>
+            <div class="tech-tile-info">
+              <div class="tech-tile-name">RAG Systems</div>
+              <div class="tech-tile-scope">Vector Search · Sub-2s Latency · LexAssist</div>
+              <div class="tech-inspect-badge">
+                <span>&lt;/&gt;</span> Inspect Real Code
+              </div>
+            </div>
+            <div class="tech-tile-badge">Verified Stack</div>
+          </div>
+        </div>
+      
+        <div class="tech-3d-tile" data-cat="ai-engineering" style="--tech-accent: #2563EB;" onclick="window.openStackInspector && window.openStackInspector('LLMs')">
+          <div class="tech-tile-inner">
+            <div class="tech-tile-glare"></div>
+            <div class="tech-tile-logo" style="background: rgba(37,99,235,0.08); border-color: #2563EB22;">
+              <svg viewBox="0 0 24 24" width="36" height="36"><circle cx="12" cy="12" r="3" fill="#2563EB"/><circle cx="12" cy="4" r="2" fill="#2563EB"/><circle cx="12" cy="20" r="2" fill="#2563EB"/><circle cx="4" cy="12" r="2" fill="#2563EB"/><circle cx="20" cy="12" r="2" fill="#2563EB"/><line x1="12" y1="6" x2="12" y2="9" stroke="#2563EB" stroke-width="1.8"/><line x1="12" y1="15" x2="12" y2="18" stroke="#2563EB" stroke-width="1.8"/><line x1="6" y1="12" x2="9" y2="12" stroke="#2563EB" stroke-width="1.8"/><line x1="15" y1="12" x2="18" y2="12" stroke="#2563EB" stroke-width="1.8"/></svg>
+            </div>
+            <div class="tech-tile-info">
+              <div class="tech-tile-name">LLMs</div>
+              <div class="tech-tile-scope">Prompt Engineering · Structured JSON Schemas</div>
+              <div class="tech-inspect-badge">
+                <span>&lt;/&gt;</span> Inspect Real Code
+              </div>
+            </div>
+            <div class="tech-tile-badge">Verified Stack</div>
+          </div>
+        </div>
+      
+        <div class="tech-3d-tile" data-cat="ai-engineering" style="--tech-accent: #059669;" onclick="window.openStackInspector && window.openStackInspector('AI Agents')">
+          <div class="tech-tile-inner">
+            <div class="tech-tile-glare"></div>
+            <div class="tech-tile-logo" style="background: rgba(5,150,105,0.08); border-color: #05966922;">
+              <svg viewBox="0 0 24 24" width="36" height="36"><circle cx="12" cy="12" r="9" fill="none" stroke="#059669" stroke-width="2"/><path d="M12 7v5l3 3" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#059669"/></svg>
+            </div>
+            <div class="tech-tile-info">
+              <div class="tech-tile-name">AI Agents</div>
+              <div class="tech-tile-scope">Autonomous Tool Use · State Machines · Loops</div>
+              <div class="tech-inspect-badge">
+                <span>&lt;/&gt;</span> Inspect Real Code
+              </div>
+            </div>
+            <div class="tech-tile-badge">Verified Stack</div>
+          </div>
+        </div>
+      
+        </div>
+      </div>
+    </div>
+    
+    <div class="tech-sandbox-view" id="techSandboxView" style="display: none;">
+      <div class="sandbox-card-frame">
+        <div class="sandbox-header">
+          <div>
+            <div class="sandbox-tag">INTERACTIVE SANDBOX</div>
+            <h3 class="sandbox-title">Core Technologies &amp; Stack</h3>
+          </div>
+          <button type="button" class="sandbox-reset-btn" id="sandboxResetBtn" title="Reset Gravity and Drop Badges">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+              <path d="M3 3v5h5"/>
+            </svg>
+            <span>Reset</span>
+          </button>
+        </div>
+
+        <div class="sandbox-canvas-wrapper" id="sandboxCanvasWrapper">
+          <canvas id="sandboxCanvas"></canvas>
+          <div class="sandbox-hint">
+            <span>💡 Grab and toss technology badges · Watch real-time physics collisions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</section>
+  
+<!-- UNIVERSAL PERSISTENT FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div class="foot-copy">
+        Alisam Srivardhan &middot; <span class="current-year"></span> &middot; Software Engineer
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11.5px; color: var(--olive);">
+        <span style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #47A248; box-shadow: 0 0 6px rgba(71,162,72,0.6);"></span>
+        <span>Available for Software Engineering Internships &middot; Hyderabad / Remote</span>
+      </div>
+    </div>
+
+    <!-- Persistent Verified Social & Coding Profiles -->
+    <div class="persistent-foot-socials" aria-label="Professional and Coding Profiles">
+      <a href="https://github.com/Vardhan-1806" target="_blank" rel="noopener" class="pfoot-link" title="GitHub Profile">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="https://linkedin.com/in/alisam-srivardhan-291124332" target="_blank" rel="noopener" class="pfoot-link" title="LinkedIn Profile">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://leetcode.com/u/Vardhann13/" target="_blank" rel="noopener" class="pfoot-link" title="LeetCode Profile">
+        <svg viewBox="0 0 24 24"><path d="M13.48 2.34a1.37 1.37 0 0 0-1.94 0L5.7 8.18a4.42 4.42 0 0 0 0 6.24l4.44 4.44a4.42 4.42 0 0 0 6.24 0l2.02-2.02a1.37 1.37 0 1 0-1.94-1.94l-2.02 2.02a1.68 1.68 0 0 1-2.37 0l-4.44-4.44a1.68 1.68 0 0 1 0-2.37l5.84-5.84a1.37 1.37 0 0 0 0-1.93ZM9.36 14.5a1.37 1.37 0 0 0 0 2.74h8.9a1.37 1.37 0 0 0 0-2.74h-8.9Z"/></svg>
+        LeetCode (325)
+      </a>
+      <a href="https://www.codechef.com/users/vardhann18" target="_blank" rel="noopener" class="pfoot-link" title="CodeChef Profile">
+        <span style="font-size: 14px;">👨‍🍳</span>
+        CodeChef (1119★)
+      </a>
+      <a href="https://instagram.com/vardhan_114_" target="_blank" rel="noopener" class="pfoot-link" title="Instagram Profile">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        Instagram
+      </a>
+      <a href="mailto:alisamsrivardhan72@gmail.com" class="pfoot-link" title="Direct Email">
+        <span style="font-size: 13px;">✉️</span>
+        Email
+      </a>
+    </div>
+
+    <div class="foot-actions">
+      <button onclick="window.replayAsvIntro()" class="foot-replay-btn" title="Replay Cinematic Intro">🎬 Replay Intro</button>
+      <a href="#" class="foot-top">&uarr; Top</a>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+  // Scroll-driven Photo Sketch Drawing Animation (Priority 2)
+  (function initAboutPhotoSketch() {
+    const frame = document.getElementById('aboutPhotoFrame');
+    const canvas = document.getElementById('sketchCanvas');
+    const finalPhoto = document.getElementById('finalPhotoImg');
+    const pencil = document.getElementById('aboutDrawPencil');
+    const statusPill = document.getElementById('aboutDrawStatus');
+    if (!frame || !canvas || !finalPhoto || !pencil) return;
+
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width;
+    const H = canvas.height;
+
+    // Load authentic user-uploaded pencil sketch
+    const sketchImg = new Image();
+    sketchImg.src = 'sketch-portrait.jpg';
+
+    let hasStarted = false;
+    let isFinished = false;
+
+    // Lead tip offset in the 44x114 SVG (scaled from 54x140: 31 * (44/54) = 25.2, 139 * (114/140) = 113.1)
+    function setPencil(x, y, angle = -28) {
+      pencil.style.transform = `translate(${x - 25}px, ${y - 113}px) rotate(${angle}deg)`;
+    }
+
+    function completeImmediately() {
+      if (isFinished) return;
+      isFinished = true;
+      pencil.style.opacity = '0';
+      if (statusPill) statusPill.style.opacity = '0';
+      if (sketchImg.complete && sketchImg.naturalWidth > 0) {
+        ctx.drawImage(sketchImg, 0, 0, W, H);
+      }
+      setTimeout(() => {
+        finalPhoto.style.opacity = '1';
+      }, 200);
+      frame.setAttribute('data-drawn', 'true');
+    }
+
+    // Instant click to complete
+    frame.addEventListener('click', completeImmediately);
+
+    // Reduced motion check
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      completeImmediately();
+      return;
+    }
+
+    // Anatomical keypoint curves matching Alisam Srivardhan portrait (340x440)
+    const drawTracks = [
+      // Track 1: Hair silhouette & crown contours
+      [
+        {x: 105, y: 155}, {x: 110, y: 120}, {x: 125, y: 80}, {x: 150, y: 50},
+        {x: 185, y: 35}, {x: 220, y: 40}, {x: 245, y: 65}, {x: 255, y: 110}, {x: 245, y: 150}
+      ],
+      // Track 2: Bangs & hair texture waves
+      [
+        {x: 140, y: 90}, {x: 165, y: 115}, {x: 185, y: 105}, {x: 205, y: 120}, {x: 225, y: 100}
+      ],
+      // Track 3: Jawline, chin & ears
+      [
+        {x: 112, y: 155}, {x: 120, y: 195}, {x: 135, y: 225}, {x: 160, y: 245},
+        {x: 185, y: 248}, {x: 210, y: 235}, {x: 228, y: 210}, {x: 236, y: 170}
+      ],
+      // Track 4: Eyebrows & Eyes
+      [
+        {x: 130, y: 142}, {x: 148, y: 136}, {x: 165, y: 144},
+        {x: 135, y: 150}, {x: 148, y: 146}, {x: 162, y: 152},
+        {x: 188, y: 145}, {x: 205, y: 138}, {x: 222, y: 144},
+        {x: 192, y: 153}, {x: 205, y: 148}, {x: 218, y: 153}
+      ],
+      // Track 5: Nose bridge, tip & nostrils
+      [
+        {x: 176, y: 148}, {x: 174, y: 170}, {x: 168, y: 186}, {x: 178, y: 192}, {x: 188, y: 186}
+      ],
+      // Track 6: Mustache & lips
+      [
+        {x: 155, y: 205}, {x: 175, y: 204}, {x: 195, y: 205},
+        {x: 158, y: 216}, {x: 175, y: 220}, {x: 192, y: 216}
+      ],
+      // Track 7: Beard & chin stubble
+      [
+        {x: 145, y: 225}, {x: 165, y: 242}, {x: 185, y: 242}, {x: 205, y: 228}
+      ],
+      // Track 8: Neck & inner collar
+      [
+        {x: 140, y: 250}, {x: 155, y: 275}, {x: 175, y: 285}, {x: 195, y: 275}, {x: 210, y: 250}
+      ],
+      // Track 9: Left suit lapel & shoulder
+      [
+        {x: 148, y: 275}, {x: 125, y: 310}, {x: 95, y: 330}, {x: 50, y: 360}, {x: 15, y: 400},
+        {x: 95, y: 330}, {x: 140, y: 420}
+      ],
+      // Track 10: Right suit lapel & shoulder
+      [
+        {x: 202, y: 275}, {x: 225, y: 310}, {x: 255, y: 330}, {x: 295, y: 360}, {x: 330, y: 400},
+        {x: 225, y: 310}, {x: 210, y: 420}
+      ],
+      // Track 11: Cross-hatching shading sweeps (jacket & background tones)
+      [
+        {x: 40, y: 380}, {x: 90, y: 350}, {x: 60, y: 410}, {x: 120, y: 370},
+        {x: 230, y: 380}, {x: 290, y: 350}, {x: 260, y: 410}, {x: 320, y: 370}
+      ]
+    ];
+
+    async function runDrawingSequence() {
+      hasStarted = true;
+      pencil.style.opacity = '1';
+      setPencil(300, -20);
+
+      // Clean textured paper start
+      ctx.fillStyle = '#fcfbf7';
+      ctx.fillRect(0, 0, W, H);
+
+      // Make sure image is loaded before stamping
+      if (!sketchImg.complete) {
+        await new Promise(res => { sketchImg.onload = res; sketchImg.onerror = res; });
+      }
+
+      for (let t = 0; t < drawTracks.length; t++) {
+        if (isFinished) return;
+        const track = drawTracks[t];
+        for (let i = 0; i < track.length - 1; i++) {
+          if (isFinished) return;
+          const p1 = track[i];
+          const p2 = track[i + 1];
+          const dist = Math.hypot(p2.x - p1.x, p2.y - p1.y);
+          const steps = Math.max(5, Math.floor(dist / 5));
+          const stepDur = Math.max(10, Math.floor(160 / steps));
+
+          for (let s = 1; s <= steps; s++) {
+            if (isFinished) return;
+            const frac = s / steps;
+            const cx = p1.x + (p2.x - p1.x) * frac;
+            const cy = p1.y + (p2.y - p1.y) * frac;
+
+            setPencil(cx, cy, -25 + (s % 3) * 4);
+
+            // Stamp sketch image along pencil tip
+            if (sketchImg.complete && sketchImg.naturalWidth > 0) {
+              ctx.save();
+              ctx.beginPath();
+              ctx.arc(cx, cy, 28, 0, Math.PI * 2);
+              ctx.clip();
+              ctx.drawImage(sketchImg, 0, 0, W, H);
+              ctx.restore();
+            }
+
+            // Real graphite line under pencil tip
+            ctx.save();
+            ctx.strokeStyle = 'rgba(54, 44, 36, 0.75)';
+            ctx.lineWidth = 1.8;
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            ctx.moveTo(cx - (p2.x - p1.x) * 0.1, cy - (p2.y - p1.y) * 0.1);
+            ctx.lineTo(cx, cy);
+            ctx.stroke();
+            ctx.restore();
+
+            await new Promise(r => setTimeout(r, stepDur));
+          }
+        }
+      }
+
+      // Finish drawing: reveal entire sketch cleanly
+      if (sketchImg.complete && sketchImg.naturalWidth > 0) {
+        ctx.drawImage(sketchImg, 0, 0, W, H);
+      }
+
+      // Pencil signature flourish at bottom corner
+      setPencil(260, 415, -15);
+      await new Promise(r => setTimeout(r, 160));
+      setPencil(320, 425, -10);
+      await new Promise(r => setTimeout(r, 200));
+
+      pencil.style.opacity = '0';
+      if (statusPill) {
+        statusPill.textContent = 'Sketch Complete · Revealing Photo';
+        statusPill.style.color = 'var(--olive-d)';
+      }
+
+      // Hold sketch for 600ms so the user absorbs the hand-drawn sketch
+      await new Promise(r => setTimeout(r, 600));
+
+      // Transition smoothly to original photograph
+      finalPhoto.style.opacity = '1';
+      if (statusPill) {
+        setTimeout(() => { statusPill.style.opacity = '0'; }, 800);
+      }
+      isFinished = true;
+      frame.setAttribute('data-drawn', 'true');
+    }
+
+    // Scroll Observer (triggers only once when section enters viewport)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !hasStarted && frame.getAttribute('data-drawn') !== 'true') {
+          observer.disconnect();
+          runDrawingSequence();
+        }
+      });
+    }, { threshold: 0.25 });
+
+    observer.observe(frame);
+  })();
+</script>
+<script src="tech-interactive.js"></script>
+</body>
+</html>

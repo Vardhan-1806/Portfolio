@@ -1,0 +1,11 @@
+# Dependencies & Build
+node_modules/
+.vercel/
+
+# Logs & temp files
+download-log.txt
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db

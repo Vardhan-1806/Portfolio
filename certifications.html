@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alisam Srivardhan — Achievements &amp; Certifications</title>
+  <link rel="icon" type="image/svg+xml" href="asv-monogram.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+  <script src="ink-transition.js"></script>
+  <style>
+    .hack-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .hack-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 26px; position: relative;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+    .hack-card:hover {
+      border-color: var(--border-h); transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+    }
+    .hack-badge {
+      font-family: var(--mono); font-size: 11px; color: var(--olive);
+      font-weight: 600; background: var(--olive-wash);
+      border: 1px solid var(--olive-border); border-radius: 50px;
+      padding: 3px 10px; width: fit-content; margin-bottom: 14px;
+    }
+    .hack-title {
+      font-family: var(--serif); font-size: 20px; font-weight: 700;
+      color: var(--ink); margin-bottom: 4px;
+    }
+    .hack-org {
+      font-family: var(--mono); font-size: 11.5px; color: var(--ink3);
+      margin-bottom: 10px;
+    }
+    .hack-desc { font-size: 14px; color: var(--ink2); line-height: 1.6; }
+
+    /* ── Certification Cards ── */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 20px;
+    }
+    .cert-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 24px 22px 20px;
+      cursor: pointer; position: relative; overflow: hidden;
+      transition: border-color 0.25s, transform 0.22s, box-shadow 0.25s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .cert-card:hover {
+      border-color: var(--border-h); transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(60,48,38,0.09);
+    }
+    .cert-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 3px; background: linear-gradient(90deg, var(--pencil) 0%, var(--olive) 100%);
+      opacity: 0; transition: opacity 0.25s;
+    }
+    .cert-card:hover::after { opacity: 1; }
+    .cert-issuer-badge {
+      font-family: var(--mono); font-size: 10.5px; font-weight: 600;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      border-radius: 50px; padding: 3px 11px; width: fit-content;
+      border: 1px solid;
+    }
+    .nptel-badge   { color: #6b4c28; background: #fdf3e7; border-color: #e8c98c; }
+    .aws-badge     { color: #2d5a5a; background: #eaf4f4; border-color: #8ecece; }
+    .infosys-badge { color: #465c33; background: var(--olive-wash); border-color: var(--olive-border); }
+    .cisco-badge   { color: #3b4f7a; background: #eef1f9; border-color: #b0bde4; }
+    .cert-icon-wrap {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: var(--bg2); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cert-title {
+      font-family: var(--serif); font-size: 18.5px; font-weight: 700;
+      color: var(--ink); line-height: 1.25;
+    }
+    .cert-meta {
+      font-family: var(--mono); font-size: 11px; color: var(--ink3);
+      line-height: 1.5;
+    }
+    .cert-desc {
+      font-size: 13.5px; color: var(--ink2); line-height: 1.65;
+      flex: 1;
+    }
+    .cert-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 10px; border-top: 1px solid var(--border); margin-top: 2px;
+    }
+    .cert-date {
+      font-family: var(--mono); font-size: 11px; color: var(--ink3);
+    }
+    .cert-view-link {
+      font-family: var(--mono); font-size: 11.5px; color: var(--olive);
+      font-weight: 600; transition: opacity 0.2s;
+    }
+    .cert-card:hover .cert-view-link { opacity: 0.75; }
+  </style>
+
+</head>
+<body>
+<div class="noise"></div>
+<div class="scroll-prog" id="scrollProg"></div>
+
+<!-- NAVIGATION -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand" aria-label="Alisam Srivardhan Home">
+      <img src="asv-logo.png" alt="ASV Logo" class="brand-logo" width="48" height="36" />
+    </a>
+
+    <div class="nav-links" aria-label="Main navigation">
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="coding.html">Coding</a>
+      <a href="certifications.html" class="active">Achievements</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <a href="mailto:alisamsrivardhan72@gmail.com?subject=Opportunity%20Inquiry" class="nav-cta">
+      Email Me
+    </a>
+
+    <button class="burger" id="burger" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAVIGATION -->
+<div class="mob-nav" id="mobNav" aria-hidden="true">
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="coding.html">Coding</a>
+  <a href="certifications.html" class="active">Achievements</a>
+  <a href="resume.html">Resume</a>
+  <a href="contact.html">Contact</a>
+  <a href="mailto:alisamsrivardhan72@gmail.com?subject=Opportunity%20Inquiry" class="mob-nav-cta">
+    Email Me &rarr;
+  </a>
+</div>
+
+<!-- PAGE HEADER -->
+<header class="page-hero">
+  <div class="wrap page-hero-inner">
+    <p class="page-hero-tag rv">Milestones &amp; Contests</p>
+    <h1 class="rv d1">Hackathons &amp;<br><em>Certifications.</em></h1>
+    <p class="rv d2">
+      Collegiate competitions, certified training, and competitive milestones.
+    </p>
+  </div>
+</header>
+
+<!-- SECTION 1: HACKATHONS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-label rv">
+      <span class="sl-n">01</span><span class="sl-bar"></span><span class="sl-t">Hackathons &amp; Events</span>
+    </div>
+    <h2 class="sec-h rv">Collaborative builds<br><em>under constraints.</em></h2>
+
+    <div class="hack-grid rv d1">
+      <!-- SIH -->
+      <div class="hack-card">
+        <div class="hack-badge">Sep 2025 · National</div>
+        <div class="hack-title">Smart India Hackathon (SIH)</div>
+        <div class="hack-org">Ministry of Education · India</div>
+        <div class="hack-desc">
+          Competed in India's premier national hackathon, developing end-to-end technology solutions
+          for real-world public governance and infrastructure problem statements under strict 36-hour sprint deadlines.
+        </div>
+      </div>
+
+      <!-- Vibeathon -->
+      <div class="hack-card">
+        <div class="hack-badge">2025 · Hyderabad</div>
+        <div class="hack-title">Vibeathon</div>
+        <div class="hack-org">Chaitanya Bharathi Institute of Technology (CBIT)</div>
+        <div class="hack-desc">
+          Designed and implemented responsive web prototypes focusing on rapid iteration, creative front-end architecture,
+          and component modularity in a high-intensity collegiate development environment.
+        </div>
+      </div>
+
+      <!-- HackXtreme -->
+      <div class="hack-card">
+        <div class="hack-badge">2026 · Hyderabad</div>
+        <div class="hack-title">HackXtreme</div>
+        <div class="hack-org">Gokaraju Rangaraju Institute of Eng. &amp; Tech. (GRIET)</div>
+        <div class="hack-desc">
+          Engineered full-stack features with microservices thinking, optimizing client-side rendering
+          and backend query performance for fast, data-heavy user interactions.
+        </div>
+      </div>
+
+      <!-- HackFusion -->
+      <div class="hack-card">
+        <div class="hack-badge">2026 · Hyderabad</div>
+        <div class="hack-title">HackFusion</div>
+        <div class="hack-org">Jawaharlal Nehru Technological University (JNTUH)</div>
+        <div class="hack-desc">
+          Collaborated on interdisciplinary problem solving, integrating relational database models
+          and RESTful API pipelines to solve real-time university and enterprise use cases.
+        </div>
+      </div>
+
+      <!-- R&D Showcase -->
+      <div class="hack-card">
+        <div class="hack-badge">2026 · Exhibition</div>
+        <div class="hack-title">R&amp;D Showcase 2026</div>
+        <div class="hack-org">Research &amp; Development Exhibition</div>
+        <div class="hack-desc">
+          Demonstrated technical project architectures and algorithmic prototypes to academic faculty,
+          industry mentors, and fellow student developers.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: CERTIFICATIONS -->
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="sec-label rv">
+      <span class="sl-n">02</span><span class="sl-bar"></span><span class="sl-t">Certified Training</span>
+    </div>
+    <h2 class="sec-h rv">Professional<br><em>accreditations.</em></h2>
+
+    <div class="cert-grid rv d1">
+
+      <!-- NPTEL Java -->
+      <div class="cert-card" onclick="openCert('certs/nptel-java-certificate.pdf','NPTEL — Programming in Java')">
+        <div class="cert-issuer-badge nptel-badge">NPTEL · IIT</div>
+        <div class="cert-icon-wrap">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="5" stroke="#362c24" stroke-width="1.8"/><path d="M9 18 C9 14 12 11 14 11 C16 11 17 13 16 15 C15 17 13 18 14 18 C15 18 17 17 18 15" stroke="#465c33" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M9 21 L19 21" stroke="#362c24" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="cert-title">Programming in Java</div>
+        <div class="cert-meta">National Programme on Technology Enhanced Learning (NPTEL) · IIT Bombay</div>
+        <p class="cert-desc">12-week elite course covering OOP, data structures, collections, exception handling, I/O, JDBC, and concurrent programming with hands-on assignments and proctored exam.</p>
+        <div class="cert-footer">
+          <span class="cert-date">Aug 2026</span>
+          <span class="cert-view-link">View Certificate ↗</span>
+        </div>
+      </div>
+
+      <!-- AWS Cloud Practitioner -->
+      <div class="cert-card" onclick="openCert('certs/aws-cloud-practitioner.pdf','AWS Academy — Cloud Practitioner')">
+        <div class="cert-issuer-badge aws-badge">AWS Academy</div>
+        <div class="cert-icon-wrap">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 17 C4 15 4 11 7 10 C7 7 10 5 13 6 C14 4 17 4 18 6 C21 6 23 9 22 12 C24 13 24 17 22 18" stroke="#362c24" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M10 20 L14 24 L18 20" stroke="#465c33" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><line x1="14" y1="24" x2="14" y2="14" stroke="#465c33" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <div class="cert-title">AWS Cloud Practitioner</div>
+        <div class="cert-meta">Amazon Web Services Academy · Cloud Foundations</div>
+        <p class="cert-desc">Foundational cloud computing concepts — AWS global infrastructure, core services (EC2, S3, RDS, Lambda), IAM, pricing models, security shared responsibility, and Well-Architected Framework.</p>
+        <div class="cert-footer">
+          <span class="cert-date">Aug 2026</span>
+          <span class="cert-view-link">View Certificate ↗</span>
+        </div>
+      </div>
+
+      <!-- HTML5 & CSS3 Infosys -->
+      <div class="cert-card" onclick="openCert('certs/html5-and-css3-infosys.pdf','Infosys Springboard — HTML5 &amp; CSS3')">
+        <div class="cert-issuer-badge infosys-badge">Infosys Springboard</div>
+        <div class="cert-icon-wrap">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="5" width="20" height="18" rx="3" stroke="#362c24" stroke-width="1.8"/><path d="M8 10 L12 10 M8 14 L16 14 M8 18 L13 18" stroke="#465c33" stroke-width="1.6" stroke-linecap="round"/><path d="M17 17 L20 20 M20 17 L17 20" stroke="#362c24" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="cert-title">HTML5 &amp; CSS3 Advanced Training</div>
+        <div class="cert-meta">Infosys Springboard · Web Development Track</div>
+        <p class="cert-desc">Modern semantic markup, responsive design (Flexbox, CSS Grid), custom properties, media queries, keyframe animations, accessibility (WCAG), and performance best practices.</p>
+        <div class="cert-footer">
+          <span class="cert-date">Feb 2026</span>
+          <span class="cert-view-link">View Certificate ↗</span>
+        </div>
+      </div>
+
+      <!-- Networking Basics -->
+      <div class="cert-card" onclick="openCert('certs/networking-basics.pdf','Cisco — Networking Basics')">
+        <div class="cert-issuer-badge cisco-badge">Cisco · NetAcad</div>
+        <div class="cert-icon-wrap">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="4" stroke="#362c24" stroke-width="1.8"/><circle cx="6" cy="8" r="2.5" stroke="#465c33" stroke-width="1.5"/><circle cx="22" cy="8" r="2.5" stroke="#465c33" stroke-width="1.5"/><circle cx="6" cy="20" r="2.5" stroke="#465c33" stroke-width="1.5"/><circle cx="22" cy="20" r="2.5" stroke="#465c33" stroke-width="1.5"/><line x1="10" y1="14" x2="8" y2="10" stroke="#362c24" stroke-width="1.3"/><line x1="18" y1="14" x2="20" y2="10" stroke="#362c24" stroke-width="1.3"/><line x1="10" y1="14" x2="8" y2="18" stroke="#362c24" stroke-width="1.3"/><line x1="18" y1="14" x2="20" y2="18" stroke="#362c24" stroke-width="1.3"/></svg>
+        </div>
+        <div class="cert-title">Networking Basics</div>
+        <div class="cert-meta">Cisco Networking Academy · IT Essentials</div>
+        <p class="cert-desc">OSI/TCP-IP models, IP addressing and subnetting, LAN/WAN topology, switching and routing fundamentals, DNS/DHCP protocols, and network security essentials.</p>
+        <div class="cert-footer">
+          <span class="cert-date">Aug 2026</span>
+          <span class="cert-view-link">View Certificate ↗</span>
+        </div>
+      </div>
+
+      <!-- C Essentials -->
+      <div class="cert-card" onclick="openCert('certs/c-essentials.pdf','Cisco — C Essentials')">
+        <div class="cert-issuer-badge cisco-badge">Cisco · NetAcad</div>
+        <div class="cert-icon-wrap">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M18 10 C16 7 11 7 9 10 C7 13 7 15 9 18 C11 21 16 21 18 18" stroke="#362c24" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg>
+        </div>
+        <div class="cert-title">C Essentials — Part 1</div>
+        <div class="cert-meta">Cisco Networking Academy · Programming Fundamentals</div>
+        <p class="cert-desc">C language fundamentals — variables, data types, operators, control flow, functions, arrays, pointers, strings, structs, and memory management for systems programming.</p>
+        <div class="cert-footer">
+          <span class="cert-date">Aug 2026</span>
+          <span class="cert-view-link">View Certificate ↗</span>
+        </div>
+      </div>
+
+    </div><!-- /.cert-grid -->
+  </div>
+</section>
+
+<!-- ── CERT LIGHTBOX MODAL ── -->
+<div id="certModal" role="dialog" aria-modal="true" aria-label="Certificate viewer" style="display:none; position:fixed; inset:0; z-index:9000; background:rgba(30,25,21,0.82); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:24px;">
+  <div style="position:relative; width:100%; max-width:860px; height:90vh; background:#fcfbf7; border-radius:16px; overflow:hidden; box-shadow:0 24px 80px rgba(30,25,21,0.35); display:flex; flex-direction:column;">
+    <div style="display:flex; align-items:center; justify-content:space-between; padding:14px 20px; border-bottom:1px solid var(--border); background:var(--bg2); flex-shrink:0;">
+      <span id="certModalTitle" style="font-family:var(--mono); font-size:12px; color:var(--ink2); font-weight:500;"></span>
+      <div style="display:flex; gap:14px; align-items:center;">
+        <a id="certModalExternal" href="#" target="_blank" rel="noopener" style="font-family:var(--mono); font-size:11.5px; color:var(--ink2); font-weight:500; text-decoration:none;">Open in Tab ↗</a>
+        <a id="certModalDownload" href="#" download style="font-family:var(--mono); font-size:11.5px; color:var(--olive); font-weight:600; text-decoration:none;">↓ Download</a>
+        <button onclick="closeCert()" aria-label="Close certificate viewer" style="background:none; border:none; cursor:pointer; font-size:20px; color:var(--ink2); line-height:1; padding:0 4px;">✕</button>
+      </div>
+    </div>
+    <object id="certModalObj" data="" type="application/pdf" style="flex:1; width:100%; border:none;">
+      <div style="padding:40px; text-align:center;">
+        <p style="color:var(--ink2); margin-bottom:16px;">PDF preview unavailable in this browser.</p>
+        <a id="certModalFallback" href="#" download class="btn-primary">Download to View ↓</a>
+      </div>
+    </object>
+  </div>
+</div>
+
+
+<!-- SECTION 3: BADGES WALL -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-label rv">
+      <span class="sl-n">03</span><span class="sl-bar"></span><span class="sl-t">Competitive Honors</span>
+    </div>
+    <h2 class="sec-h rv">Milestones earned<br><em>through consistency.</em></h2>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 14px;" class="rv d1">
+      <div class="tag hi" style="padding: 10px 18px; font-size: 13px;">
+        🏅 50 Days Badge 2026 · LeetCode
+      </div>
+      <div class="tag" style="padding: 10px 18px; font-size: 13px;">
+        ⭐ CodeChef Division 4 · Rating 1,119
+      </div>
+      <div class="tag" style="padding: 10px 18px; font-size: 13px;">
+        📈 Contest Rating 1,482 · Top 50.37% Global
+      </div>
+      <div class="tag" style="padding: 10px 18px; font-size: 13px;">
+        🔥 50-Day Maximum Problem Solving Streak
+      </div>
+      <div class="tag" style="padding: 10px 18px; font-size: 13px;">
+        🎯 325 Solved Algorithmic Problems
+      </div>
+      <div class="tag" style="padding: 10px 18px; font-size: 13px;">
+        📅 103 Active Days · 488 Submissions
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIVERSAL PERSISTENT FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div class="foot-copy">
+        Alisam Srivardhan &middot; <span class="current-year"></span> &middot; Software Engineer
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11.5px; color: var(--olive);">
+        <span style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #47A248; box-shadow: 0 0 6px rgba(71,162,72,0.6);"></span>
+        <span>Available for Software Engineering Internships &middot; Hyderabad / Remote</span>
+      </div>
+    </div>
+
+    <!-- Persistent Verified Social & Coding Profiles -->
+    <div class="persistent-foot-socials" aria-label="Professional and Coding Profiles">
+      <a href="https://github.com/Vardhan-1806" target="_blank" rel="noopener" class="pfoot-link" title="GitHub Profile">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="https://linkedin.com/in/alisam-srivardhan-291124332" target="_blank" rel="noopener" class="pfoot-link" title="LinkedIn Profile">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://leetcode.com/u/Vardhann13/" target="_blank" rel="noopener" class="pfoot-link" title="LeetCode Profile">
+        <svg viewBox="0 0 24 24"><path d="M13.48 2.34a1.37 1.37 0 0 0-1.94 0L5.7 8.18a4.42 4.42 0 0 0 0 6.24l4.44 4.44a4.42 4.42 0 0 0 6.24 0l2.02-2.02a1.37 1.37 0 1 0-1.94-1.94l-2.02 2.02a1.68 1.68 0 0 1-2.37 0l-4.44-4.44a1.68 1.68 0 0 1 0-2.37l5.84-5.84a1.37 1.37 0 0 0 0-1.93ZM9.36 14.5a1.37 1.37 0 0 0 0 2.74h8.9a1.37 1.37 0 0 0 0-2.74h-8.9Z"/></svg>
+        LeetCode (325)
+      </a>
+      <a href="https://www.codechef.com/users/vardhann18" target="_blank" rel="noopener" class="pfoot-link" title="CodeChef Profile">
+        <span style="font-size: 14px;">👨‍🍳</span>
+        CodeChef (1119★)
+      </a>
+      <a href="https://instagram.com/vardhan_114_" target="_blank" rel="noopener" class="pfoot-link" title="Instagram Profile">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        Instagram
+      </a>
+      <a href="mailto:alisamsrivardhan72@gmail.com" class="pfoot-link" title="Direct Email">
+        <span style="font-size: 13px;">✉️</span>
+        Email
+      </a>
+    </div>
+
+    <div class="foot-actions">
+      <button onclick="window.replayAsvIntro()" class="foot-replay-btn" title="Replay Cinematic Intro">🎬 Replay Intro</button>
+      <a href="#" class="foot-top">&uarr; Top</a>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+  function openCert(pdfUrl, title) {
+    const modal = document.getElementById('certModal');
+    const titleEl = document.getElementById('certModalTitle');
+    const objEl = document.getElementById('certModalObj');
+    const dlEl = document.getElementById('certModalDownload');
+    const extEl = document.getElementById('certModalExternal');
+    const fbEl = document.getElementById('certModalFallback');
+
+    titleEl.textContent = title;
+    objEl.data = pdfUrl + '#toolbar=1&navpanes=0';
+    dlEl.href = pdfUrl;
+    extEl.href = pdfUrl;
+    fbEl.href = pdfUrl;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCert() {
+    const modal = document.getElementById('certModal');
+    const objEl = document.getElementById('certModalObj');
+    objEl.data = '';
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('certModal')?.addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeCert();
+    }
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeCert();
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alisam Srivardhan — Resume</title>
+  <link rel="icon" type="image/svg+xml" href="asv-monogram.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+  <script src="ink-transition.js"></script>
+  <style>
+    .resume-sidebar-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+    .rm-row {
+      display: flex; flex-direction: column; gap: 4px;
+      padding: 12px 0; border-bottom: 1px solid var(--border);
+    }
+    .rm-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .rm-label {
+      font-family: var(--mono); font-size: 10.5px; color: var(--olive);
+      letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600;
+    }
+    .rm-val { font-size: 13.5px; color: var(--ink); }
+    .resume-embed-container {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    }
+    .resume-embed-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 20px; background: var(--bg2); border-bottom: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+<div class="noise"></div>
+<div class="scroll-prog" id="scrollProg"></div>
+
+<!-- NAVIGATION -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand" aria-label="Alisam Srivardhan Home">
+      <img src="asv-logo.png" alt="ASV Logo" class="brand-logo" width="48" height="36" />
+    </a>
+
+    <div class="nav-links" aria-label="Main navigation">
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="coding.html">Coding</a>
+      <a href="certifications.html">Achievements</a>
+      <a href="resume.html" class="active">Resume</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <a href="resume.pdf" download="Alisam_Srivardhan_Resume.pdf" class="nav-cta">
+      &darr; PDF Download
+    </a>
+
+    <button class="burger" id="burger" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAVIGATION -->
+<div class="mob-nav" id="mobNav" aria-hidden="true">
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="coding.html">Coding</a>
+  <a href="certifications.html">Achievements</a>
+  <a href="resume.html" class="active">Resume</a>
+  <a href="contact.html">Contact</a>
+  <a href="resume.pdf" download="Alisam_Srivardhan_Resume.pdf" class="mob-nav-cta">
+    Download Resume &darr;
+  </a>
+</div>
+
+<!-- PAGE HEADER -->
+<header class="page-hero">
+  <div class="wrap page-hero-inner">
+    <p class="page-hero-tag rv">Curriculum Vitae</p>
+    <h1 class="rv d1">Interactive resume &amp;<br><em>official document.</em></h1>
+    <p class="rv d2">
+      Undergraduate in Computer Science &amp; Engineering at BVRIT Narsapur · CGPA 8.88 · Class of 2028.
+    </p>
+  </div>
+</header>
+
+<!-- RESUME VIEWER SECTION: 3D DOCUMENT EXPERIENCE -->
+<section class="sec">
+  <div class="wrap">
+    
+    <!-- 3 Action Control Strip at top of resume section -->
+    <div class="rv" style="margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px 24px; box-shadow: 0 4px 18px rgba(0,0,0,0.03);">
+      <div>
+        <div style="font-family: var(--mono); font-size: 11px; color: var(--olive); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px;">
+          Official Verified Curriculum Vitae
+        </div>
+        <div style="font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--ink);">
+          Alisam Srivardhan &middot; B.Tech CSE Class of 2028
+        </div>
+      </div>
+
+      <!-- 3 Explicit Required Actions -->
+      <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+        <!-- Action 1: Explore Resume -->
+        <button
+          type="button"
+          class="btn-primary"
+          id="fullscreenPreviewBtn"
+          style="gap: 8px; cursor: pointer; padding: 10px 20px;"
+          title="Open interactive fullscreen resume reader"
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <polyline points="9 21 3 21 3 15"></polyline>
+            <line x1="21" y1="3" x2="14" y2="10"></line>
+            <line x1="3" y1="21" x2="10" y2="14"></line>
+          </svg>
+          Explore Resume
+        </button>
+
+        <!-- Action 2: Download PDF -->
+        <a
+          href="resume.pdf"
+          download="Alisam_Srivardhan_Resume.pdf"
+          class="btn-outline"
+          id="downloadResumeBtn"
+          style="gap: 8px; text-decoration: none; padding: 10px 20px;"
+          title="Direct download of official PDF"
+        >
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M8 2v8M5 7l3 3 3-3M2 11v1a2 2 0 002 2h8a2 2 0 002-2v-1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Download PDF
+        </a>
+
+        <!-- Action 3: Contact Me -->
+        <a
+          href="contact.html"
+          class="btn-ghost"
+          style="gap: 6px; text-decoration: none; font-weight: 600; padding: 10px 16px;"
+          title="Navigate directly to contact section"
+        >
+          Contact Me &rarr;
+        </a>
+      </div>
+    </div>
+
+    <div class="resume-layout">
+      <!-- Left Column: Honest Verified Credentials -->
+      <div class="rv">
+        <div class="resume-sidebar-card">
+          <div class="rm-row">
+            <span class="rm-label">Candidate Name</span>
+            <span class="rm-val" style="font-weight: 700; font-family: var(--serif); font-size: 16px;">Alisam Srivardhan</span>
+          </div>
+          <div class="rm-row">
+            <span class="rm-label">Academic Program</span>
+            <span class="rm-val">B.Tech in Computer Science and Engineering</span>
+          </div>
+          <div class="rm-row">
+            <span class="rm-label">Institution</span>
+            <span class="rm-val">BVRIT Narsapur, Hyderabad (2024–2028)</span>
+          </div>
+          <div class="rm-row">
+            <span class="rm-label">Academic Merit</span>
+            <span class="rm-val" style="color: var(--olive); font-weight: 700;">8.88 CGPA / 10.0</span>
+          </div>
+          <div class="rm-row">
+            <span class="rm-label">Industry Internship</span>
+            <span class="rm-val">Front-End Development Intern @ Varzo (Feb–Mar 2026)</span>
+          </div>
+          <div class="rm-row">
+            <span class="rm-label">Core Specializations</span>
+            <span class="rm-val" style="font-size: 12.5px; line-height: 1.55;">
+              Data Structures &amp; Algorithms, RAG AI Systems, Full-Stack MERN (React, Node, Express, MongoDB), Spring Boot, PostgreSQL
+            </span>
+          </div>
+          <div class="rm-row">
+            <span class="rm-label">Competitive Programming</span>
+            <span class="rm-val" style="font-size: 12.5px;">
+              325+ LeetCode Problems Solved · 1,482 Contest Rating · 100 Days Badge · CodeChef 1,119★
+            </span>
+          </div>
+          <div class="rm-row">
+            <span class="rm-label">Direct Correspondence</span>
+            <span class="rm-val" style="font-family: var(--mono); font-size: 12px; word-break: break-all;">
+              alisamsrivardhan72@gmail.com
+            </span>
+          </div>
+          <div class="rm-row">
+            <span class="rm-label">Status</span>
+            <span class="rm-val" style="color: var(--olive); font-weight: 600;">
+              ● Available for Engineering Internships (Remote &amp; On-site)
+            </span>
+          </div>
+        </div>
+
+        <!-- Verified Badges & Certifications Quick Card -->
+        <div class="resume-sidebar-card" style="margin-top: 16px;">
+          <div style="font-family: var(--mono); font-size: 11px; color: var(--olive); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">
+            Verified Technical Accreditations
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12.5px; color: var(--ink2);">
+            <div>🏆 <strong>LeetCode:</strong> 100 Days Badge 2026 · 50 Days Streak · 325 Problems Solved</div>
+            <div>⚡ <strong>CodeChef:</strong> 1,119★ (Div 4) · 5 Official Contests</div>
+            <div>📜 <strong>NPTEL / IIT Bombay:</strong> Programming in Java (Elite)</div>
+            <div>☁️ <strong>AWS:</strong> Cloud Practitioner Essentials</div>
+            <div>💼 <strong>Varzo:</strong> Front-End Development Internship Certificate</div>
+          </div>
+          <div style="margin-top: 14px;">
+            <a href="certifications.html" class="btn-ghost" style="padding: 4px 0; font-size: 12.5px;">
+              View Verified Credential Proofs &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive 3D Document Sheet -->
+      <div class="rv d1">
+        <div class="resume-3d-card" id="resume3dCard">
+          <div class="resume-3d-inner resume-embed-container" style="box-shadow: 0 16px 48px rgba(0,0,0,0.18); border: 1.5px solid var(--border);">
+            <div class="resume-embed-header">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--olive);"></span>
+                <span style="font-family: var(--mono); font-size: 12px; color: var(--ink); font-weight: 600;">
+                  Alisam_Srivardhan_Resume.pdf
+                </span>
+              </div>
+              <div style="display: flex; gap: 14px; align-items: center;">
+                <button type="button" onclick="document.getElementById('fullscreenPreviewBtn').click()" style="background:none; border:none; font-family: var(--mono); font-size: 11.5px; color: var(--ink2); cursor:pointer;">⤢ Fullscreen</button>
+                <a href="resume.pdf" download="Alisam_Srivardhan_Resume.pdf" style="font-family: var(--mono); font-size: 11.5px; color: var(--olive); font-weight: 600; text-decoration: none;">&darr; Save File</a>
+              </div>
+            </div>
+
+            <!-- Embedded PDF Document -->
+            <object
+              data="resume.pdf#toolbar=1&navpanes=0&scrollbar=1"
+              type="application/pdf"
+              class="resume-pdf-frame"
+              id="resumePdfObject"
+              aria-label="Alisam Srivardhan Resume Document"
+            >
+              <div style="padding: 60px 24px; text-align: center;">
+                <p style="font-size: 15px; color: var(--ink2); margin-bottom: 20px;">
+                  Browser PDF preview is not enabled. View or download the verified resume directly:
+                </p>
+                <div style="display: flex; gap: 12px; justify-content: center;">
+                  <a href="resume.pdf" download="Alisam_Srivardhan_Resume.pdf" class="btn-primary">
+                    Download PDF Document &darr;
+                  </a>
+                  <a href="contact.html" class="btn-outline">
+                    Contact Me &rarr;
+                  </a>
+                </div>
+              </div>
+            </object>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Fullscreen Resume Modal -->
+<div id="resumeFullscreenModal" style="display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(20,18,16,0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); flex-direction: column;">
+  <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 24px; background: rgba(30,27,24,0.95); border-bottom: 1px solid rgba(255,255,255,0.1);">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <span style="font-family: var(--serif); font-size: 17px; font-weight: 700; color: #fff;">Alisam Srivardhan — Curriculum Vitae</span>
+      <span style="font-family: var(--mono); font-size: 11px; color: var(--olive); background: rgba(104,135,77,0.2); padding: 3px 8px; border-radius: 4px;">Verified PDF</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <a href="resume.pdf" download="Alisam_Srivardhan_Resume.pdf" style="font-family: var(--mono); font-size: 12px; color: #d4af37; text-decoration: none; border: 1px solid rgba(212,175,55,0.4); padding: 6px 14px; border-radius: 50px;">&darr; Download PDF</a>
+      <button id="closeResumeModalBtn" style="background: none; border: none; color: #fff; font-size: 26px; cursor: pointer; line-height: 1; padding: 0 6px;" aria-label="Close Fullscreen Modal">&times;</button>
+    </div>
+  </div>
+  <div style="flex: 1; position: relative;">
+    <iframe src="resume.pdf#toolbar=1" style="width: 100%; height: 100%; border: none;" title="Resume Fullscreen Preview"></iframe>
+  </div>
+</div>
+
+<script>
+  // Fullscreen Preview Modal Logic
+  (function initResumeModal() {
+    const btn = document.getElementById('fullscreenPreviewBtn');
+    const modal = document.getElementById('resumeFullscreenModal');
+    const closeBtn = document.getElementById('closeResumeModalBtn');
+    if (!btn || !modal) return;
+
+    btn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    });
+
+    function closeModal() {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.style.display === 'flex') {
+        closeModal();
+      }
+    });
+  })();
+</script>
+
+<!-- UNIVERSAL PERSISTENT FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div class="foot-copy">
+        Alisam Srivardhan &middot; <span class="current-year"></span> &middot; Software Engineer
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11.5px; color: var(--olive);">
+        <span style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #47A248; box-shadow: 0 0 6px rgba(71,162,72,0.6);"></span>
+        <span>Available for Software Engineering Internships &middot; Hyderabad / Remote</span>
+      </div>
+    </div>
+
+    <!-- Persistent Verified Social & Coding Profiles -->
+    <div class="persistent-foot-socials" aria-label="Professional and Coding Profiles">
+      <a href="https://github.com/Vardhan-1806" target="_blank" rel="noopener" class="pfoot-link" title="GitHub Profile">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="https://linkedin.com/in/alisam-srivardhan-291124332" target="_blank" rel="noopener" class="pfoot-link" title="LinkedIn Profile">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://leetcode.com/u/Vardhann13/" target="_blank" rel="noopener" class="pfoot-link" title="LeetCode Profile">
+        <svg viewBox="0 0 24 24"><path d="M13.48 2.34a1.37 1.37 0 0 0-1.94 0L5.7 8.18a4.42 4.42 0 0 0 0 6.24l4.44 4.44a4.42 4.42 0 0 0 6.24 0l2.02-2.02a1.37 1.37 0 1 0-1.94-1.94l-2.02 2.02a1.68 1.68 0 0 1-2.37 0l-4.44-4.44a1.68 1.68 0 0 1 0-2.37l5.84-5.84a1.37 1.37 0 0 0 0-1.93ZM9.36 14.5a1.37 1.37 0 0 0 0 2.74h8.9a1.37 1.37 0 0 0 0-2.74h-8.9Z"/></svg>
+        LeetCode (325)
+      </a>
+      <a href="https://www.codechef.com/users/vardhann18" target="_blank" rel="noopener" class="pfoot-link" title="CodeChef Profile">
+        <span style="font-size: 14px;">👨‍🍳</span>
+        CodeChef (1119★)
+      </a>
+      <a href="https://instagram.com/vardhan_114_" target="_blank" rel="noopener" class="pfoot-link" title="Instagram Profile">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        Instagram
+      </a>
+      <a href="mailto:alisamsrivardhan72@gmail.com" class="pfoot-link" title="Direct Email">
+        <span style="font-size: 13px;">✉️</span>
+        Email
+      </a>
+    </div>
+
+    <div class="foot-actions">
+      <button onclick="window.replayAsvIntro()" class="foot-replay-btn" title="Replay Cinematic Intro">🎬 Replay Intro</button>
+      <a href="#" class="foot-top">&uarr; Top</a>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>

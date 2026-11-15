@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting to Project...</title>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = (params.get('id') || params.get('p') || 'lexassist').toLowerCase();
+    const map = {
+      'lexassist': 'project-lexassist.html',
+      'travelmate': 'project-travelmate.html',
+      'socially': 'project-socially.html',
+      'algomotion': 'project-algomotion.html',
+      'tree_traversal': 'project-algomotion.html',
+      'vanskart': 'project-socially.html'
+    };
+    window.location.replace(map[id] || 'project-lexassist.html');
+  </script>
+</head>
+<body>
+  <p>Loading project specification...</p>
+</body>
+</html>
