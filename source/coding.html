@@ -11,16 +11,17 @@
   <link rel="stylesheet" href="style.css"/>
   <script src="ink-transition.js"></script>
   <style>
-    /* Dark Cinematic Graph Specifics */
+    /* Dark & Light Adaptive Graph Specifics */
     .pencil-axis { stroke: var(--pencil); stroke-width: 1.5; stroke-linecap: round; }
-    .pencil-grid-line { stroke: rgba(242, 238, 228, 0.08); stroke-dasharray: 3 4; }
+    .pencil-grid-line { stroke: var(--border); stroke-dasharray: 3 4; }
     .pencil-curve { stroke: var(--olive); stroke-width: 2.8; stroke-linecap: round; stroke-linejoin: round; fill: none; }
-    .pencil-area { fill: url(#lcGraphGrad); opacity: 0.18; }
+    .pencil-area { fill: url(#lcGraphGrad); opacity: 0.16; }
     .graph-point {
       fill: var(--card); stroke: var(--olive); stroke-width: 2.5; r: 5;
       transition: r 0.2s, stroke-width 0.2s, fill 0.2s; cursor: pointer;
     }
-    .graph-point:hover { r: 7.5; stroke: #ffffff; fill: var(--olive); }
+    .graph-point:hover { r: 7.5; stroke: var(--ink); fill: var(--olive); }
+    .graph-axis-text { fill: var(--ink3); font-family: 'DM Mono', monospace; font-size: 9.5px; }
   </style>
 </head>
 <body>
@@ -266,34 +267,34 @@
             <div>
               <div class="graph-title">Contest Rating Progression · LeetCode</div>
               <div style="font-family: var(--mono); font-size: 11px; color: var(--ink3); margin-top: 3px;">
-                8 Contests Attended (Aug – Oct 2026) · Traced Point-by-Point
+                7 Rated Contests (Aug – Oct 2026) · Sequential Progression Curve
               </div>
             </div>
-            <div style="font-family: var(--mono); font-size: 11.5px; color: #b86200; font-weight: 600; background: rgba(255, 161, 22, 0.08); padding: 4px 12px; border-radius: 50px; border: 1px solid rgba(255, 161, 22, 0.3);">
-              Rating: 1,482
+            <div style="font-family: var(--mono); font-size: 11.5px; color: var(--olive); font-weight: 600; background: var(--olive-wash); padding: 4px 12px; border-radius: 50px; border: 1px solid var(--olive-border);">
+              Weekly 517 &rarr; Weekly 523
             </div>
           </div>
 
           <svg id="contestSvgGraph" class="pencil-svg-graph" viewBox="0 0 540 220" aria-label="Hand-drawn LeetCode contest rating progression">
             <defs>
               <linearGradient id="lcGraphGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#FFA116" stop-opacity="0.28"/>
-                <stop offset="100%" stop-color="#FFA116" stop-opacity="0.01"/>
+                <stop offset="0%" stop-color="var(--olive)" stop-opacity="0.25"/>
+                <stop offset="100%" stop-color="var(--olive)" stop-opacity="0.01"/>
               </linearGradient>
             </defs>
 
             <!-- Grid Lines (Hand-drawn dashed) -->
             <line x1="45" y1="25" x2="515" y2="25" class="pencil-grid-line"/>
-            <text x="35" y="29" font-family="'DM Mono', monospace" font-size="9.5" fill="#7a6d61" text-anchor="end">1500</text>
+            <text x="35" y="29" class="graph-axis-text" text-anchor="end">1500</text>
 
             <line x1="45" y1="65" x2="515" y2="65" class="pencil-grid-line"/>
-            <text x="35" y="69" font-family="'DM Mono', monospace" font-size="9.5" fill="#7a6d61" text-anchor="end">1450</text>
+            <text x="35" y="69" class="graph-axis-text" text-anchor="end">1450</text>
 
             <line x1="45" y1="105" x2="515" y2="105" class="pencil-grid-line"/>
-            <text x="35" y="109" font-family="'DM Mono', monospace" font-size="9.5" fill="#7a6d61" text-anchor="end">1400</text>
+            <text x="35" y="109" class="graph-axis-text" text-anchor="end">1400</text>
 
             <line x1="45" y1="145" x2="515" y2="145" class="pencil-grid-line"/>
-            <text x="35" y="149" font-family="'DM Mono', monospace" font-size="9.5" fill="#7a6d61" text-anchor="end">1350</text>
+            <text x="35" y="149" class="graph-axis-text" text-anchor="end">1350</text>
 
             <!-- Axes drawn by pencil -->
             <path id="graphAxisPath" d="M 45 15 L 45 185 L 520 185" class="pencil-axis"/>
@@ -301,31 +302,31 @@
             <!-- Shaded Area Under Curve -->
             <path id="graphAreaPath" d="M 85 185 L 85 140 Q 117 123, 150 106 Q 182 115, 215 124 Q 247 108, 280 93 Q 315 90, 350 87 Q 385 87, 420 87 Q 455 74, 490 62 L 490 185 Z" fill="url(#lcGraphGrad)" style="opacity: 0; transition: opacity 0.6s;"/>
 
-            <!-- Drawn Progression Line (8 Contests) -->
+            <!-- Drawn Progression Line (7 Contests) -->
             <path id="graphCurvePath" d="M 85 140 Q 117 123, 150 106 Q 182 115, 215 124 Q 247 108, 280 93 Q 315 90, 350 87 Q 385 87, 420 87 Q 455 74, 490 62" class="pencil-curve lc-curve"/>
 
-            <!-- Interactive Data Points (8 Contests revealed sequentially) -->
+            <!-- Interactive Data Points (7 Contests revealed sequentially) -->
             <g id="graphPointsGroup">
               <circle id="pt1" cx="85" cy="140" class="graph-point lc-point" data-tip="Weekly Contest 517 · Aug 30, 2026 · Rating: 1,356 (Rank: 16,876)" style="opacity: 0; transition: opacity 0.3s, r 0.2s;"/>
-              <text id="tx1" x="85" y="198" font-family="'DM Mono', monospace" font-size="8.5" fill="#7a6d61" text-anchor="middle" style="opacity: 0;">Aug 30</text>
+              <text id="tx1" x="85" y="198" class="graph-axis-text" text-anchor="middle" style="opacity: 0;">Aug 30</text>
 
               <circle id="pt2" cx="150" cy="106" class="graph-point lc-point" data-tip="Weekly Contest 518 · Sep 6, 2026 · Rating: 1,399 (Rank: 9,325)" style="opacity: 0; transition: opacity 0.3s, r 0.2s;"/>
-              <text id="tx2" x="150" y="198" font-family="'DM Mono', monospace" font-size="8.5" fill="#7a6d61" text-anchor="middle" style="opacity: 0;">Sep 6</text>
+              <text id="tx2" x="150" y="198" class="graph-axis-text" text-anchor="middle" style="opacity: 0;">Sep 6</text>
 
               <circle id="pt3" cx="215" cy="124" class="graph-point lc-point" data-tip="Biweekly Contest 191 · Sep 12, 2026 · Rating: 1,376 (Rank: 14,292)" style="opacity: 0; transition: opacity 0.3s, r 0.2s;"/>
-              <text id="tx3" x="215" y="198" font-family="'DM Mono', monospace" font-size="8.5" fill="#7a6d61" text-anchor="middle" style="opacity: 0;">Sep 12</text>
+              <text id="tx3" x="215" y="198" class="graph-axis-text" text-anchor="middle" style="opacity: 0;">Sep 12</text>
 
               <circle id="pt4" cx="280" cy="93" class="graph-point lc-point" data-tip="Weekly Contest 519 · Sep 13, 2026 · Rating: 1,415 (Rank: 7,730)" style="opacity: 0; transition: opacity 0.3s, r 0.2s;"/>
-              <text id="tx4" x="280" y="198" font-family="'DM Mono', monospace" font-size="8.5" fill="#7a6d61" text-anchor="middle" style="opacity: 0;">Sep 13</text>
+              <text id="tx4" x="280" y="198" class="graph-axis-text" text-anchor="middle" style="opacity: 0;">Sep 13</text>
 
               <circle id="pt5" cx="350" cy="87" class="graph-point lc-point" data-tip="Weekly Contest 522 · Oct 4, 2026 · Rating: 1,422 (Rank: 11,199)" style="opacity: 0; transition: opacity 0.3s, r 0.2s;"/>
-              <text id="tx5" x="350" y="198" font-family="'DM Mono', monospace" font-size="8.5" fill="#7a6d61" text-anchor="middle" style="opacity: 0;">Oct 4</text>
+              <text id="tx5" x="350" y="198" class="graph-axis-text" text-anchor="middle" style="opacity: 0;">Oct 4</text>
 
               <circle id="pt6" cx="420" cy="87" class="graph-point lc-point" data-tip="Biweekly Contest 193 · Oct 10, 2026 · Rating: 1,423 (Rank: 9,404)" style="opacity: 0; transition: opacity 0.3s, r 0.2s;"/>
-              <text id="tx6" x="420" y="198" font-family="'DM Mono', monospace" font-size="8.5" fill="#7a6d61" text-anchor="middle" style="opacity: 0;">Oct 10</text>
+              <text id="tx6" x="420" y="198" class="graph-axis-text" text-anchor="middle" style="opacity: 0;">Oct 10</text>
 
               <circle id="pt7" cx="490" cy="62" class="graph-point lc-point" data-tip="Weekly Contest 523 · Oct 11, 2026 · Rating: 1,482 (Peak · Rank: 6,864)" style="opacity: 0; transition: opacity 0.3s, r 0.2s;"/>
-              <text id="tx7" x="490" y="198" font-family="'DM Mono', monospace" font-size="9" fill="#b86200" font-weight="bold" text-anchor="middle" style="opacity: 0;">Oct 11 (1482)</text>
+              <text id="tx7" x="490" y="198" font-family="'DM Mono', monospace" font-size="9" fill="var(--olive)" font-weight="bold" text-anchor="middle" style="opacity: 0;">Oct 11 (1482)</text>
             </g>
           </svg>
 
@@ -349,7 +350,7 @@
         <div class="contest-dist-card">
           <div>
             <div style="font-family: var(--mono); font-size: 11px; color: var(--ink3); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; margin-bottom: 4px;">
-              Global Distribution
+              Global Standing
             </div>
             <div style="font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--ink); margin-bottom: 2px;">
               Top 50.37%
@@ -363,7 +364,7 @@
             <div class="dist-bar" style="height: 18%;" title="Rating < 1200"></div>
             <div class="dist-bar" style="height: 35%;" title="Rating 1200-1300"></div>
             <div class="dist-bar" style="height: 58%;" title="Rating 1300-1400"></div>
-            <!-- User bucket: Rating 1482 (Highlighted in amber/gold as on LeetCode) -->
+            <!-- User bucket: Rating 1482 -->
             <div class="dist-bar highlight" style="height: 94%;" title="Rating 1400-1500 (Alisam Srivardhan: 1,482 · Top 50.37%)"></div>
             <div class="dist-bar" style="height: 72%;" title="Rating 1500-1600"></div>
             <div class="dist-bar" style="height: 52%;" title="Rating 1600-1700"></div>
@@ -375,7 +376,7 @@
 
           <div style="display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10px; color: var(--ink3); border-top: 1px solid var(--border); padding-top: 8px;">
             <span>1,000</span>
-            <span style="color: #f59e0b; font-weight: 700;">▲ You (1,482)</span>
+            <span style="color: var(--olive); font-weight: 700;">▲ Rating: 1,482</span>
             <span>2,400+</span>
           </div>
         </div>
@@ -384,8 +385,8 @@
       <!-- READABLE MONOCHROMATIC BEIGE-TO-OLIVE HEATMAP -->
       <div class="heatmap-card rv d3">
         <div class="graph-title-row">
-          <div class="graph-title">Annual Submission Heatmap · 480 Submissions across 99 Active Days</div>
-          <div style="font-family: var(--mono); font-size: 11px; color: var(--ink3);">Period: Past 12 Months · Max Streak: 50 Days</div>
+          <div class="graph-title">Annual Submission Heatmap</div>
+          <div style="font-family: var(--mono); font-size: 11px; color: var(--ink3);">Period: Past 12 Months · 52-Week Submission Cadence</div>
         </div>
 
         <div class="hm-outer">
@@ -410,7 +411,7 @@
         <!-- Cohesive Monochromatic Legend -->
         <div class="hm-legend">
           <span>0 Submissions</span>
-          <span class="hm-leg-cell" style="background:#ece5d8;" title="0"></span>
+          <span class="hm-leg-cell hm-cell l0" title="0"></span>
           <span class="hm-leg-cell hm-cell l1" title="1-2"></span>
           <span class="hm-leg-cell hm-cell l2" title="3-5"></span>
           <span class="hm-leg-cell hm-cell l3" title="6-8"></span>
@@ -444,28 +445,21 @@
         </a>
       </div>
 
-      <!-- Honest Data Disclaimer -->
-      <div style="background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px; margin-bottom: 24px; font-size: 13.5px; color: var(--ink2); line-height: 1.7;">
-        <strong style="color: var(--ink);">Honest Metric Transparency:</strong> CodeChef does not expose a public, unauthenticated JSON API for historical per-contest rating curves. To strictly adhere to portfolio engineering standards, metrics shown below are from verified account records without fabricated historical points.
+      <!-- Verified Data Indicator -->
+      <div style="font-family: var(--mono); font-size: 11.5px; color: var(--ink3); margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+        <span style="color: var(--olive); font-weight: 700;">&#10003;</span>
+        <span>Verified account records &middot; Division 4 rating progression across 5 rated contests</span>
       </div>
 
       <!-- CodeChef Metrics Grid (Verified from Live Profile) -->
       <div class="big-stats">
         <div class="bstat">
-          <div class="bstat-n" style="color: #9B3828;">1,119★</div>
-          <div class="bstat-l">Current Rating (Div 4)</div>
+          <div class="bstat-n" style="color: #b86255;">1,119★</div>
+          <div class="bstat-l">Rating (Division 4)</div>
         </div>
         <div class="bstat">
-          <div class="bstat-n" data-count="1119">1,119</div>
-          <div class="bstat-l">Highest Rating</div>
-        </div>
-        <div class="bstat">
-          <div class="bstat-n">1★</div>
-          <div class="bstat-l">Star Tier (Div 4)</div>
-        </div>
-        <div class="bstat">
-          <div class="bstat-n" data-count="4">4</div>
-          <div class="bstat-l">Contests Attended</div>
+          <div class="bstat-n" data-count="5">5</div>
+          <div class="bstat-l">Rated Contests</div>
         </div>
         <div class="bstat">
           <div class="bstat-n" data-count="137952">137,952</div>
@@ -481,36 +475,36 @@
       <div class="pencil-graph-card" id="ccContestGraphCard" style="position: relative; overflow: hidden; margin-bottom: 24px;" data-drawn="false">
         <div class="graph-title-row">
           <div>
-            <div class="graph-title">Pencil-Drawn Rating Progression · CodeChef Contests</div>
+            <div class="graph-title">Pencil-Drawn Rating Progression · CodeChef</div>
             <div style="font-family: var(--mono); font-size: 11px; color: var(--ink3); margin-top: 3px;">
-              5 Rated Contests Attended (Aug – Oct 2026) · Highest Rating: 1,119 (Division 4)
+              Starters 253 through Starters 261 (Aug – Oct 2026) · Drawn Progression
             </div>
           </div>
-          <div style="font-family: var(--mono); font-size: 11.5px; color: #9B3828; font-weight: 600; background: rgba(155, 56, 40, 0.08); padding: 4px 12px; border-radius: 50px; border: 1px solid rgba(155, 56, 40, 0.3);">
-            Current: 1,119 (Div 4)
+          <div style="font-family: var(--mono); font-size: 11.5px; color: #b86255; font-weight: 600; background: rgba(184, 98, 85, 0.08); padding: 4px 12px; border-radius: 50px; border: 1px solid rgba(184, 98, 85, 0.3);">
+            Division 4 Tier
           </div>
         </div>
 
         <svg id="ccSvgGraph" class="pencil-svg-graph" viewBox="0 0 760 220" aria-label="CodeChef rating progression drawn in pencil style">
           <defs>
             <linearGradient id="ccGraphGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#9B3828" stop-opacity="0.25"/>
-              <stop offset="100%" stop-color="#9B3828" stop-opacity="0.01"/>
+              <stop offset="0%" stop-color="#b86255" stop-opacity="0.25"/>
+              <stop offset="100%" stop-color="#b86255" stop-opacity="0.01"/>
             </linearGradient>
           </defs>
 
           <!-- Grid Lines -->
           <line x1="50" y1="30" x2="730" y2="30" class="pencil-grid-line"/>
-          <text x="35" y="34" font-family="'DM Mono', monospace" font-size="10" fill="#7a6d61" text-anchor="end">1100</text>
+          <text x="35" y="34" class="graph-axis-text" text-anchor="end">1100</text>
 
           <line x1="50" y1="80" x2="730" y2="80" class="pencil-grid-line"/>
-          <text x="35" y="84" font-family="'DM Mono', monospace" font-size="10" fill="#7a6d61" text-anchor="end">1000</text>
+          <text x="35" y="84" class="graph-axis-text" text-anchor="end">1000</text>
 
           <line x1="50" y1="130" x2="730" y2="130" class="pencil-grid-line"/>
-          <text x="35" y="134" font-family="'DM Mono', monospace" font-size="10" fill="#7a6d61" text-anchor="end">900</text>
+          <text x="35" y="134" class="graph-axis-text" text-anchor="end">900</text>
 
           <line x1="50" y1="180" x2="730" y2="180" class="pencil-grid-line"/>
-          <text x="35" y="184" font-family="'DM Mono', monospace" font-size="10" fill="#7a6d61" text-anchor="end">700</text>
+          <text x="35" y="184" class="graph-axis-text" text-anchor="end">700</text>
 
           <!-- Axes -->
           <path id="ccAxisPath" d="M 50 20 L 50 185 L 735 185" class="pencil-axis"/>
@@ -524,19 +518,19 @@
           <!-- 5 Data Points -->
           <g id="ccPointsGroup">
             <circle id="ccPt1" cx="100" cy="171" class="graph-point cc-point" data-tip="Starters 253 · Aug 26, 2026 · Rating: 747 (Rank: 18,290)" style="opacity: 0; transition: opacity 0.3s, r 0.2s;"/>
-            <text id="ccTx1" x="100" y="202" font-family="'DM Mono', monospace" font-size="10" fill="#7a6d61" text-anchor="middle" style="opacity: 0;">Aug 26 (747)</text>
+            <text id="ccTx1" x="100" y="202" class="graph-axis-text" text-anchor="middle" style="opacity: 0;">Aug 26 (747)</text>
 
             <circle id="ccPt2" cx="240" cy="156" class="graph-point cc-point" data-tip="Starters 254 · Sep 2, 2026 · Rating: 823 (Rank: 18,195)" style="opacity: 0; transition: opacity 0.3s, r 0.2s;"/>
-            <text id="ccTx2" x="240" y="202" font-family="'DM Mono', monospace" font-size="10" fill="#7a6d61" text-anchor="middle" style="opacity: 0;">Sep 2 (823)</text>
+            <text id="ccTx2" x="240" y="202" class="graph-axis-text" text-anchor="middle" style="opacity: 0;">Sep 2 (823)</text>
 
             <circle id="ccPt3" cx="380" cy="132" class="graph-point cc-point" data-tip="Starters 256 · Sep 16, 2026 · Rating: 954 (Rank: 9,303)" style="opacity: 0; transition: opacity 0.3s, r 0.2s;"/>
-            <text id="ccTx3" x="380" y="202" font-family="'DM Mono', monospace" font-size="10" fill="#7a6d61" text-anchor="middle" style="opacity: 0;">Sep 16 (954)</text>
+            <text id="ccTx3" x="380" y="202" class="graph-axis-text" text-anchor="middle" style="opacity: 0;">Sep 16 (954)</text>
 
             <circle id="ccPt4" cx="520" cy="105" class="graph-point cc-point" data-tip="Starters 260 · Oct 14, 2026 · Rating: 1,036 (Rank: 11,307)" style="opacity: 0; transition: opacity 0.3s, r 0.2s;"/>
-            <text id="ccTx4" x="520" y="202" font-family="'DM Mono', monospace" font-size="10" fill="#7a6d61" text-anchor="middle" style="opacity: 0;">Oct 14 (1036)</text>
+            <text id="ccTx4" x="520" y="202" class="graph-axis-text" text-anchor="middle" style="opacity: 0;">Oct 14 (1036)</text>
 
             <circle id="ccPt5" cx="660" cy="55" class="graph-point cc-point" data-tip="Starters 261 · Oct 2026 · Rating: 1,119 (Peak · 1★ Div 4)" style="opacity: 0; transition: opacity 0.3s, r 0.2s;"/>
-            <text id="ccTx5" x="660" y="202" font-family="'DM Mono', monospace" font-size="10" fill="#9B3828" font-weight="bold" text-anchor="middle" style="opacity: 0;">Peak: 1119★</text>
+            <text id="ccTx5" x="660" y="202" font-family="'DM Mono', monospace" font-size="10" fill="#b86255" font-weight="bold" text-anchor="middle" style="opacity: 0;">Peak: 1119★</text>
           </g>
         </svg>
 
@@ -587,7 +581,7 @@
 
         <div class="hm-legend">
           <span>0 Submissions</span>
-          <span class="hm-leg-cell" style="background:#ece5d8;" title="0"></span>
+          <span class="hm-leg-cell hm-cell l0" title="0"></span>
           <span class="hm-leg-cell hm-cell l1" title="1-2"></span>
           <span class="hm-leg-cell hm-cell l2" title="3-5"></span>
           <span class="hm-leg-cell hm-cell l3" title="6+"></span>
@@ -603,7 +597,7 @@
       <!-- Platform Header -->
       <div class="platform-header">
         <div class="platform-logo">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="#362c24" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
             <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.4 7.86 10.93.57.1.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.75 2.7 1.25 3.36.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.58.23 2.75.11 3.04.73.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.41-5.26 5.7.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.21.66.79.55A10.5 10.5 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"/>
           </svg>
         </div>
@@ -623,7 +617,7 @@
       <!-- Real API Stats -->
       <div class="big-stats">
         <div class="bstat">
-          <div class="bstat-n olive" id="ghReposVal">3+</div>
+          <div class="bstat-n olive" id="ghReposVal">6</div>
           <div class="bstat-l">Public Repositories</div>
         </div>
         <div class="bstat">
@@ -645,8 +639,8 @@
         Highlighted Repositories
       </div>
       <div class="repo-grid">
-        <a href="https://github.com/Vardhan-1806" target="_blank" rel="noopener" class="repo-card">
-          <div class="repo-name">LexAssist</div>
+        <a href="https://github.com/Vardhan-1806/LexAssist" target="_blank" rel="noopener" class="repo-card">
+          <div class="repo-name">LexAssist &nearr;</div>
           <div class="repo-desc">
             RAG-based AI legal assistant featuring sub-2s latency, 8-collection MongoDB database, and 3 role-based dashboards. Deployed on Railway.
           </div>
@@ -656,8 +650,19 @@
           </div>
         </a>
 
-        <a href="https://github.com/Vardhan-1806" target="_blank" rel="noopener" class="repo-card">
-          <div class="repo-name">Socially</div>
+        <a href="https://github.com/Vardhan-1806/TravelMate" target="_blank" rel="noopener" class="repo-card">
+          <div class="repo-name">TravelMate &nearr;</div>
+          <div class="repo-desc">
+            Autonomous travel companion platform with dynamic route calculation, live telemetry, and destination coordination.
+          </div>
+          <div class="repo-footer">
+            <span class="repo-lang"><span class="repo-lang-dot" style="background:#465c33;"></span>Node.js / Express</span>
+            <span>★ Public</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/Vardhan-1806/Socially" target="_blank" rel="noopener" class="repo-card">
+          <div class="repo-name">Socially &nearr;</div>
           <div class="repo-desc">
             Full-stack social media application with JWT session auth, Cloudinary image hosting, interactive feeds, and likes/comments.
           </div>
@@ -667,13 +672,13 @@
           </div>
         </a>
 
-        <a href="https://github.com/Vardhan-1806" target="_blank" rel="noopener" class="repo-card">
-          <div class="repo-name">Vanskart</div>
+        <a href="https://github.com/Vardhan-1806/Tree_Traversal" target="_blank" rel="noopener" class="repo-card">
+          <div class="repo-name">AlgoMotion &nearr;</div>
           <div class="repo-desc">
-            Pixel-accurate front-end e-commerce platform clone replicating responsive product grids, sticky navigations, and category filtering.
+            Interactive algorithmic visualizer rendering binary tree traversal techniques with frame-by-frame state inspection.
           </div>
           <div class="repo-footer">
-            <span class="repo-lang"><span class="repo-lang-dot" style="background:#e34c26;"></span>HTML / CSS</span>
+            <span class="repo-lang"><span class="repo-lang-dot" style="background:#e34c26;"></span>JavaScript</span>
             <span>★ Public</span>
           </div>
         </a>
@@ -715,7 +720,7 @@
         <!-- Cohesive Monochromatic Legend -->
         <div class="hm-legend">
           <span>0 Contributions</span>
-          <span class="hm-leg-cell" style="background:#ece5d8;" title="0"></span>
+          <span class="hm-leg-cell hm-cell l0" title="0"></span>
           <span class="hm-leg-cell hm-cell l1" title="1-2"></span>
           <span class="hm-leg-cell hm-cell l2" title="3-5"></span>
           <span class="hm-leg-cell hm-cell l3" title="6-8"></span>

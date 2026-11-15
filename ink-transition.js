@@ -40,14 +40,14 @@
   // Palette definition for the liquid ink bloom
   const THEME_PALETTES = {
     dark: {
-      inkColor: '#090a0f',       // Deep obsidian charcoal spreading across
-      fringeColor: '#e07038',    // Glowing racing copper edge
-      satelliteColor: '#12141c',
+      inkColor: '#0c0d12',       // Matte obsidian charcoal spreading across
+      fringeColor: '#c49a6c',    // Restrained warm bronze fringe
+      satelliteColor: '#141620',
       label: 'DARK'
     },
     light: {
       inkColor: '#fcfbf7',       // Warm fine-paper ivory spreading across
-      fringeColor: '#c8632b',    // Terracotta edge
+      fringeColor: '#b88655',    // Brushed bronze edge
       satelliteColor: '#f5f0e6',
       label: 'LIGHT'
     }
