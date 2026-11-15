@@ -55,54 +55,52 @@
   --ease2:        cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Deep Matte Obsidian & Brushed Bronze Dark Theme */
+/* Clean Stealth Obsidian & Pure Monochrome Dark Theme */
 [data-theme="dark"] {
-  --bg:           #0c0d12; /* Deep matte obsidian canvas (no stark glare) */
-  --bg2:          #12141a; /* Soft graphite container */
-  --bg3:          #161922; /* Refined elevated surface / inputs */
-  --bg4:          #202432; /* Subtle divider / inset tracks */
-  --card:         #141620; /* Clean architectural card surface */
-  --card-hover:   #181a26; /* Gentle tone shift on hover */
+  --bg:           #090a0d; /* True matte obsidian black canvas */
+  --bg2:          #111216; /* Clean deep neutral container */
+  --bg3:          #17181f; /* Elevated neutral surface / inputs */
+  --bg4:          #21222a; /* Inset divider tracks */
+  --card:         #121318; /* Clean flat card surface */
+  --card-hover:   #191a21; /* Subtle clean cover tone on hover */
   
-  --ink:          #ececee; /* Crisp pearl off-white text (calm, high legibility) */
-  --ink2:         #9da3b2; /* Brushed titanium secondary text */
-  --ink3:         #686f80; /* Muted slate annotations */
+  --ink:          #f2f3f5; /* Pure crisp pearl white headings and primary text */
+  --ink2:         #9da0aa; /* Calm neutral titanium silver text */
+  --ink3:         #626672; /* Muted slate annotations */
   
-  --pencil:       #828896; /* Subtle clean stroke */
-  --pencil-light: #474b57; /* Soft shading */
-  --border:       rgba(255, 255, 255, 0.065); /* Whisper-light hairline border */
-  --border-h:     rgba(196, 154, 108, 0.42);  /* Restrained warm bronze */
+  --pencil:       #8a8e9b; /* Clean neutral stroke */
+  --pencil-light: #444752; /* Subtle divider rule */
+  --border:       rgba(255, 255, 255, 0.08); /* Crisp whisper-thin border */
+  --border-h:     rgba(255, 255, 255, 0.26); /* Clean neutral white/silver hover border */
   
-  --olive:        #c49a6c; /* Restrained matte bronze-champagne accent */
-  --olive-d:      #d9b085; /* Soft warm champagne for hover */
-  --olive-wash:   rgba(196, 154, 108, 0.08);  /* Very gentle tint wash, zero neon */
-  --olive-border: rgba(196, 154, 108, 0.22);  /* Subtle bronze outline */
+  --olive:        #e2e4ea; /* Crisp silver-white accent — ZERO vibrant colors */
+  --olive-d:      #ffffff; /* Pure white highlight */
+  --olive-wash:   rgba(255, 255, 255, 0.06); /* Simple subtle cover wash */
+  --olive-border: rgba(255, 255, 255, 0.16); /* Clean subtle border */
   
-  --bronze:       #b88655; /* Brushed bronze */
-  --bronze-wash:  rgba(184, 134, 85, 0.08);
-  --bronze-border:rgba(184, 134, 85, 0.22);
-  --terracotta:   #c49a6c;
+  --bronze:       #a8acb8; /* Muted silver */
+  --bronze-wash:  rgba(255, 255, 255, 0.05);
+  --bronze-border:rgba(255, 255, 255, 0.14);
+  --terracotta:   #d2d5de;
   
-  --nav-bg:       rgba(12, 13, 18, 0.85);
-  --nav-bg-scrolled: rgba(12, 13, 18, 0.95);
-  --shadow-card:  0 4px 20px rgba(0, 0, 0, 0.35);
-  --shadow-hover: 0 14px 34px -4px rgba(0, 0, 0, 0.70), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --nav-bg:       rgba(9, 10, 13, 0.90);
+  --nav-bg-scrolled: rgba(9, 10, 13, 0.98);
+  --shadow-card:  none;
+  --shadow-hover: none;
 
-  /* Heatmap dark palette - calm muted obsidian & bronze */
-  --hm-cell-0:    rgba(255, 255, 255, 0.045);
-  --hm-cell-border: rgba(255, 255, 255, 0.025);
-  --hm-cell-1:    rgba(196, 154, 108, 0.22);
-  --hm-cell-2:    rgba(196, 154, 108, 0.44);
-  --hm-cell-3:    rgba(196, 154, 108, 0.70);
-  --hm-cell-4:    #c49a6c;
+  /* Heatmap dark palette - crisp minimal monochrome */
+  --hm-cell-0:    rgba(255, 255, 255, 0.04);
+  --hm-cell-border: rgba(255, 255, 255, 0.02);
+  --hm-cell-1:    rgba(255, 255, 255, 0.15);
+  --hm-cell-2:    rgba(255, 255, 255, 0.35);
+  --hm-cell-3:    rgba(255, 255, 255, 0.65);
+  --hm-cell-4:    #ffffff;
 }
 
-/* Background Gradients */
+/* Background Gradients - Calm, Deep, Zero Neon */
 [data-theme="dark"] body {
-  background-image: 
-    radial-gradient(circle at 18% 12%, rgba(196, 154, 108, 0.02) 0%, transparent 40%),
-    radial-gradient(circle at 82% 48%, rgba(20, 24, 38, 0.35) 0%, transparent 50%),
-    radial-gradient(circle at 50% 90%, rgba(10, 11, 16, 0.8) 0%, transparent 60%);
+  background-image: none;
+  background-color: var(--bg);
 }
 
 [data-theme="dark"] .brand-logo,
@@ -267,24 +265,26 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
 .nav-cta {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 9px 22px;
-  background: var(--olive); color: #ffffff;
+  background: var(--ink); color: var(--bg);
   font-size: 13.5px; font-weight: 600;
   border-radius: 50px; flex-shrink: 0;
-  transition: background 0.25s, transform 0.3s var(--ease), box-shadow 0.3s;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
   text-decoration: none;
-  box-shadow: 0 2px 10px var(--olive-border);
 }
 .nav-cta:hover {
-  background: var(--olive-d);
-  color: #ffffff;
-  transform: translateY(-1.5px) scale(1.02);
-  box-shadow: 0 6px 18px -2px var(--olive-border);
+  opacity: 0.88;
 }
 
 /* Mobile Burger */
 .burger {
   display: none; flex-direction: column; gap: 5px;
   padding: 8px; margin-left: auto;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+.burger:hover {
+  background: var(--olive-wash);
+}
   cursor: pointer; border: none; background: none;
 }
 .burger span {
@@ -381,8 +381,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
 .btn-primary:hover {
   background: var(--olive);
   color: #ffffff;
-  transform: translateY(-1.5px) scale(1.02);
-  box-shadow: 0 8px 22px -2px var(--olive-border);
+  transform: none;
+  box-shadow: none;
 }
 
 .btn-outline {
@@ -396,10 +396,11 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
   text-decoration: none; cursor: pointer;
 }
 .btn-outline:hover {
-  color: var(--olive); border-color: var(--olive);
+  color: var(--ink);
+  border-color: var(--border-h);
   background: var(--olive-wash);
-  transform: translateY(-1.5px) scale(1.02);
-  box-shadow: 0 6px 18px -4px var(--shadow-card);
+  transform: none;
+  box-shadow: none;
 }
 
 .btn-ghost {
@@ -423,8 +424,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
 .card:hover {
   border-color: var(--border-h);
   background-color: var(--card-hover);
-  transform: translateY(-2px) scale(1.006);
-  box-shadow: var(--shadow-hover);
+  transform: none;
+  box-shadow: none;
 }
 
 /* Pill / Tag */
@@ -438,7 +439,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
   transition: color 0.25s, border-color 0.25s, background 0.25s;
 }
 .tag:hover {
-  color: var(--olive); border-color: var(--olive);
+  color: var(--ink);
+  border-color: var(--border-h);
   background: var(--olive-wash);
 }
 .tag.hi {
@@ -620,8 +622,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
 .proof-card:hover {
   border-color: var(--border-h);
   background-color: var(--card-hover);
-  transform: translateY(-2px) scale(1.006);
-  box-shadow: var(--shadow-hover);
+  transform: none;
+  box-shadow: none;
 }
 .proof-card:hover .proof-n {
   color: var(--olive);
@@ -709,8 +711,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
   cursor: pointer; transition: all 0.25s var(--ease);
 }
 .refresh-stats-btn:hover:not(:disabled) {
-  background: var(--olive-wash); border-color: var(--olive); color: var(--olive);
-  transform: translateY(-1px);
+  background: var(--olive-wash); border-color: var(--border-h); color: var(--ink);
+  transform: none;
 }
 .refresh-stats-btn:disabled {
   opacity: 0.6; cursor: wait;
@@ -743,8 +745,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
 .bstat:hover {
   border-color: var(--border-h);
   background-color: var(--card-hover);
-  transform: translateY(-2px) scale(1.015);
-  box-shadow: var(--shadow-hover);
+  transform: none;
+  box-shadow: none;
 }
 .bstat:hover .bstat-n {
   color: var(--olive);
@@ -812,11 +814,11 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
   cursor: pointer;
 }
 .hm-cell:hover {
-  transform: scale(1.35);
+  transform: none;
   z-index: 5;
-  outline: 1.5px solid var(--olive);
+  outline: 1.5px solid var(--ink);
   outline-offset: 1px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: none;
 }
 .hm-cell.l0 { background: var(--hm-cell-0); }
 .hm-cell.l1 { background: var(--hm-cell-1); }
@@ -857,8 +859,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
 .repo-card:hover {
   border-color: var(--border-h);
   background-color: var(--card-hover);
-  transform: translateY(-2px) scale(1.01);
-  box-shadow: var(--shadow-hover);
+  transform: none;
+  box-shadow: none;
 }
 .repo-card:hover .repo-name {
   color: var(--olive-d);
@@ -989,7 +991,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
   box-shadow: var(--shadow-card);
   transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
 }
-.skill-card:hover { border-color: var(--border-h); transform: translateY(-3px); }
+.skill-card:hover { border-color: var(--border-h); transform: none; }
 .skill-svg-icon {
   width: 32px; height: 32px; margin: 0 auto 10px;
 }
@@ -1029,8 +1031,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
 }
 .sc:hover {
   border-color: var(--border-h);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-hover);
+  transform: none;
+  box-shadow: none;
 }
 .sc-icon {
   width: 40px; height: 40px; border-radius: 10px;
@@ -1135,13 +1137,13 @@ footer {
 .cc-point { stroke: #a34839 !important; fill: var(--card) !important; }
 .cc-point:hover { stroke: #c25b4a !important; fill: var(--bg3) !important; }
 
-[data-theme="dark"] .lc-curve { stroke: #c49a6c !important; }
-[data-theme="dark"] .lc-point { stroke: #c49a6c !important; fill: #141620 !important; }
-[data-theme="dark"] .lc-point:hover { stroke: #dfb485 !important; fill: #202432 !important; }
+[data-theme="dark"] .lc-curve { stroke: #e2e4ea !important; }
+[data-theme="dark"] .lc-point { stroke: #e2e4ea !important; fill: #121318 !important; }
+[data-theme="dark"] .lc-point:hover { stroke: #ffffff !important; fill: #21222a !important; }
 
 [data-theme="dark"] .cc-curve { stroke: #b86255 !important; }
-[data-theme="dark"] .cc-point { stroke: #b86255 !important; fill: #141620 !important; }
-[data-theme="dark"] .cc-point:hover { stroke: #d98072 !important; fill: #202432 !important; }
+[data-theme="dark"] .cc-point { stroke: #b86255 !important; fill: #121318 !important; }
+[data-theme="dark"] .cc-point:hover { stroke: #d98072 !important; fill: #21222a !important; }
 
 /* ===========================================================
    PENCIL-DRAWN OPENING EXPERIENCE (intro.js overlay)
@@ -1466,8 +1468,8 @@ footer {
 }
 .project-deep-card:hover {
   border-color: var(--border-h);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 36px rgba(60, 48, 38, 0.09);
+  transform: none;
+  box-shadow: none;
 }
 
 .project-card-header {
@@ -1504,8 +1506,8 @@ footer {
   text-decoration: none; transition: all 0.25s;
 }
 .project-link-btn:hover {
-  background: var(--olive-wash); border-color: var(--olive);
-  color: var(--olive); transform: translateY(-1px);
+  background: var(--olive-wash); border-color: var(--border-h);
+  color: var(--ink); transform: none;
 }
 .project-card-sub {
   font-size: 16px; color: var(--ink2); line-height: 1.7;
@@ -1599,8 +1601,8 @@ footer {
   max-width: 440px;
 }
 .dev-command-center:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 36px rgba(54,44,36,0.14);
+  transform: none;
+  box-shadow: none;
 }
 .dcc-terminal-header {
   background: #2b2520;
@@ -1787,8 +1789,8 @@ footer {
   border-radius: 12px 12px 0 0;
 }
 .tech-play-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(54,44,36,0.1);
+  transform: none;
+  box-shadow: none;
 }
 .tech-play-card.hidden {
   display: none;
@@ -2673,8 +2675,8 @@ footer {
 }
 .deck-detail-link:hover {
   background: var(--olive-d);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(70,92,51,0.35);
+  transform: none;
+  box-shadow: none;
 }
 .deck-repo-link {
   display: inline-flex;
@@ -2722,10 +2724,10 @@ footer {
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 .deck-nav-btn:hover {
-  background: var(--olive);
-  color: #fff;
-  border-color: var(--olive);
-  transform: translateY(-1px);
+  background: var(--olive-wash);
+  color: var(--ink);
+  border-color: var(--border-h);
+  transform: none;
 }
 .deck-counter-badge {
   font-family: var(--mono);
@@ -2764,9 +2766,9 @@ footer {
   transition: all 0.2s;
 }
 .pdetail-back-link:hover {
-  background: var(--olive);
-  color: #fff;
-  transform: translateX(-3px);
+  background: var(--olive-wash);
+  color: var(--ink);
+  transform: none;
 }
 .pdetail-h1 {
   font-family: var(--serif);
@@ -2935,10 +2937,10 @@ footer {
   transition: all 0.2s ease;
 }
 .pfoot-link:hover {
-  background: var(--olive);
-  color: #fff;
-  border-color: var(--olive);
-  transform: translateY(-2px);
+  background: var(--olive-wash);
+  color: var(--ink);
+  border-color: var(--border-h);
+  transform: none;
 }
 .pfoot-link svg {
   width: 14px;
@@ -3081,8 +3083,8 @@ footer {
 }
 
 .tech-3d-tile:hover .tech-tile-inner {
-  border-color: var(--tech-accent, var(--olive));
-  box-shadow: 0 16px 36px rgba(0,0,0,0.08), 0 0 0 1px var(--tech-accent, var(--olive));
+  border-color: var(--border-h);
+  box-shadow: none;
 }
 
 .tech-tile-glare {
@@ -3265,8 +3267,8 @@ footer {
 }
 
 .resume-3d-inner:hover {
-  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-4px);
-  box-shadow: 0 20px 48px rgba(0,0,0,0.12), 0 0 0 1px var(--olive);
+  transform: none;
+  box-shadow: none;
 }
 
 .resume-action-trio {
@@ -3301,154 +3303,11 @@ footer {
 }
 
 
-/* ==========================================================================
-   2026 AI-AUGMENTED PORTFOLIO DESIGN SYSTEM & AMBIENT CANVAS (Phase 4 Upgrade)
-   ========================================================================== */
-
-:root {
-  --ai-glow-olive: rgba(104, 135, 77, 0.14);
-  --ai-glow-gold: rgba(212, 175, 55, 0.09);
-  --ai-glow-blue: rgba(56, 139, 253, 0.08);
-  --ai-grid-dot: rgba(104, 135, 77, 0.16);
-}
-
-/* 1. Dynamic Cursor Spotlight across all pages */
-body {
-  position: relative;
-  background-color: #f7f3ec;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(850px circle at var(--cursor-x, 50vw) var(--cursor-y, 30vh), 
-              rgba(104, 135, 77, 0.12) 0%, 
-              rgba(212, 175, 55, 0.06) 40%, 
-              transparent 70%);
-  z-index: 1;
-  transition: opacity 0.3s ease;
-}
-
-/* 2. 2026 AI Blueprint Grid Canvas */
-.ai-blueprint-bg {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background-image: 
-    radial-gradient(rgba(104, 135, 77, 0.15) 1px, transparent 1px),
-    linear-gradient(to right, rgba(104, 135, 77, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(104, 135, 77, 0.04) 1px, transparent 1px);
-  background-size: 32px 32px, 96px 96px, 96px 96px;
-  opacity: 0.9;
-}
-
-/* 3. Floating Ambient Aurora Orbs */
-.ai-aurora-orb {
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(90px);
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.55;
-  animation: auroraFloat 22s infinite alternate ease-in-out;
-}
-.ai-aurora-orb-1 {
-  width: 550px;
-  height: 550px;
-  background: radial-gradient(circle, rgba(104, 135, 77, 0.25) 0%, transparent 70%);
-  top: -80px;
-  right: -60px;
-}
-.ai-aurora-orb-2 {
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.16) 0%, transparent 70%);
-  bottom: 8%;
-  left: -120px;
-  animation-duration: 28s;
-  animation-delay: -7s;
-}
-.ai-aurora-orb-3 {
-  width: 480px;
-  height: 480px;
-  background: radial-gradient(circle, rgba(104, 135, 77, 0.18) 0%, transparent 70%);
-  top: 45%;
-  right: 12%;
-  animation-duration: 24s;
-  animation-delay: -12s;
-}
-
-@keyframes auroraFloat {
-  0% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(55px, 40px, 0) scale(1.12); }
-  100% { transform: translate3d(-35px, 65px, 0) scale(0.95); }
-}
-
-/* 4. 2026 AI System HUD Ribbon */
+/* Ambient Canvas Elements (Disabled for Clean Minimal Aesthetics) */
+.ai-blueprint-bg,
+.ai-aurora-orb,
 .ai-hud-ribbon {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 24px;
-  background: rgba(28, 25, 23, 0.92);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  font-family: var(--mono);
-  font-size: 11px;
-  color: #d1c7bc;
-  position: relative;
-  z-index: 100;
-}
-.ai-hud-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.ai-hud-pulse {
-  display: inline-block;
-  width: 7.5px;
-  height: 7.5px;
-  border-radius: 50%;
-  background: #34d399;
-  box-shadow: 0 0 10px #34d399;
-  animation: pulseBeacon 2s infinite;
-}
-@keyframes pulseBeacon {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
-}
-.ai-hud-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  color: #94a3b8;
-}
-.ai-hud-badge {
-  color: #f59e0b;
-  border: 1px solid rgba(245, 158, 11, 0.4);
-  padding: 2px 8px;
-  border-radius: 4px;
-  background: rgba(245, 158, 11, 0.1);
-}
-
-/* 5. Glassmorphic 2026 Cards Enhancement across all pages */
-.proof-card, .dcc-card, .deck-panel, .tech-3d-tile .tech-tile-inner, 
-.resume-sidebar-card, .resume-3d-inner, .bstat, .pencil-graph-card, .heatmap-card {
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  background: rgba(255, 255, 255, 0.82) !important;
-  border: 1.5px solid rgba(104, 135, 77, 0.2) !important;
-  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.85) !important;
-  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease !important;
-}
-
-.proof-card:hover, .tech-3d-tile:hover .tech-tile-inner, .bstat:hover {
-  border-color: rgba(104, 135, 77, 0.5) !important;
-  box-shadow: 0 18px 48px rgba(104, 135, 77, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+  display: none !important;
 }
 
 /* 6. Interactive Stack Code Inspector Modal / Drawer */
@@ -3618,10 +3477,10 @@ body::before {
 }
 
 .tech-3d-tile:hover .tech-inspect-badge {
-  background: var(--olive);
-  color: #ffffff;
-  border-color: var(--olive);
-  transform: translateY(-1px);
+  background: var(--olive-wash);
+  color: var(--ink);
+  border-color: var(--border-h);
+  transform: none;
 }
 
 /* ============================================================
@@ -3650,8 +3509,8 @@ body::before {
 .theme-toggle:hover {
   border-color: var(--border-h);
   background: var(--card-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transform: none;
+  box-shadow: none;
 }
 .theme-toggle-track {
   display: flex;
@@ -3726,48 +3585,8 @@ body::before {
   border: 1px solid var(--olive-border);
 }
 
-/* ---- AUTOMOTIVE PRECISION CURSOR (DESKTOP ONLY) ---- */
-@media (hover: hover) and (pointer: fine) {
-  body.has-custom-cursor {
-    cursor: none;
-  }
-  body.has-custom-cursor a,
-  body.has-custom-cursor button,
-  body.has-custom-cursor input,
-  body.has-custom-cursor textarea,
-  body.has-custom-cursor .deck-panel,
-  body.has-custom-cursor .proof-card,
-  body.has-custom-cursor .skill-cat-card {
-    cursor: none;
-  }
-  .asv-cursor-dot {
-    position: fixed; top: 0; left: 0;
-    width: 6px; height: 6px;
-    background: var(--olive);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999999;
-    transform: translate(-50%, -50%);
-    transition: width 0.15s, height 0.15s, background-color 0.2s;
-  }
-  .asv-cursor-ring {
-    position: fixed; top: 0; left: 0;
-    width: 32px; height: 32px;
-    border: 1.5px solid var(--olive);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999998;
-    transform: translate(-50%, -50%);
-    transition: width 0.25s var(--ease), height 0.25s var(--ease), border-color 0.25s, opacity 0.2s, background-color 0.25s;
-    opacity: 0.65;
-  }
-  .asv-cursor-ring.is-hovering {
-    width: 48px; height: 48px;
-    border-color: var(--olive);
-    background: var(--olive-wash);
-    opacity: 0.85;
-  }
-}
+/* Standard native browser cursor everywhere */
+a, button { cursor: pointer; }
 
 /* ---- CINEMATIC INTRO HUD OVERLAY ---- */
 .intro-telemetry-hud {
@@ -3860,10 +3679,10 @@ body::before {
   transition: transform 0.3s var(--ease), border-color 0.3s, box-shadow 0.3s var(--ease), background-color 0.3s;
 }
 .about-stat-tile:hover {
-  transform: translateY(-2px) scale(1.01);
+  transform: none;
   border-color: var(--border-h);
   background-color: var(--card-hover);
-  box-shadow: var(--shadow-hover);
+  box-shadow: none;
 }
 .about-stat-num {
   font-family: var(--serif);
@@ -3958,10 +3777,10 @@ body::before {
   justify-content: space-between;
 }
 .skill-cat-card:hover {
-  transform: translateY(-2px) scale(1.008);
+  transform: none;
   border-color: var(--border-h);
   background-color: var(--card-hover);
-  box-shadow: var(--shadow-hover);
+  box-shadow: none;
 }
 .skill-cat-card:hover .skill-cat-icon {
   background: var(--olive-wash);
@@ -4012,8 +3831,8 @@ body::before {
 .skill-chip:hover {
   background: var(--card-hover);
   border-color: var(--border-h);
-  color: var(--olive);
-  transform: translateY(-1px);
+  color: var(--ink);
+  transform: none;
 }
 .skill-chip.featured {
   background: var(--olive-wash);
@@ -4041,10 +3860,10 @@ body::before {
   justify-content: space-between;
 }
 .achievement-card:hover {
-  transform: translateY(-2px) scale(1.008);
+  transform: none;
   border-color: var(--border-h);
   background-color: var(--card-hover);
-  box-shadow: var(--shadow-hover);
+  box-shadow: none;
 }
 .achievement-card:hover .achievement-name {
   color: var(--olive);

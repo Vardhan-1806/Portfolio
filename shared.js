@@ -919,59 +919,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initCopyButtons();
   initYear();
   initFloatingIdCard();
-  initAiAmbientSystem();
   initStackCodeInspector();
-  initPrecisionCursor();
 });
 
-/* ============================================================
-   AUTOMOTIVE PRECISION CURSOR (DESKTOP)
-   ============================================================ */
+/* Normal Native Cursor (Precision Cursor disabled per user request) */
 function initPrecisionCursor() {
-  if (window.matchMedia && window.matchMedia('(hover: none) or (pointer: coarse)').matches) return;
-
-  const dot = document.createElement('div');
-  dot.className = 'asv-cursor-dot';
-  const ring = document.createElement('div');
-  ring.className = 'asv-cursor-ring';
-  document.body.appendChild(dot);
-  document.body.appendChild(ring);
-  document.body.classList.add('has-custom-cursor');
-
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
-  let ringX = mouseX;
-  let ringY = mouseY;
-  let isHovering = false;
-
-  window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    dot.style.left = mouseX + 'px';
-    dot.style.top = mouseY + 'px';
-  }, { passive: true });
-
-  function renderCursor() {
-    ringX += (mouseX - ringX) * 0.18;
-    ringY += (mouseY - ringY) * 0.18;
-    ring.style.left = ringX + 'px';
-    ring.style.top = ringY + 'px';
-    requestAnimationFrame(renderCursor);
-  }
-  renderCursor();
-
-  const interactiveSelectors = 'a, button, input, textarea, .theme-toggle, .deck-panel, .skill-cat-card, .proof-card, .btn-primary, .btn-outline, .deck-nav-btn';
-  document.addEventListener('mouseover', (e) => {
-    if (e.target.closest(interactiveSelectors)) {
-      if (!isHovering) {
-        isHovering = true;
-        ring.classList.add('is-hovering');
-      }
-    } else {
-      if (isHovering) {
-        isHovering = false;
-        ring.classList.remove('is-hovering');
-      }
-    }
-  });
+  // Disabled: standard native browser cursor is restored
 }
